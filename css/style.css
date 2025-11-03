@@ -48,3 +48,18 @@ header {
     justify-content: space-between;
     background-color: var(--accentColor);
 }
+.caixa{
+    margin-top: 12%;
+    display: flex;
+    border: solid;
+    border-radius:5px;
+    color: white;
+    margin-right: 900px;
+    padding: 20px 20px 20px 20px;
+   
+}
+.texto-Da-Caixa{
+  margin-left: 400px;
+  
+
+}
