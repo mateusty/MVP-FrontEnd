@@ -37,6 +37,10 @@ a {
     color: var(--textColor);
 }
 
+a:hover{
+   opacity:0.5;
+}
+
 
 header {
     display: flex;
