@@ -1,10 +1,13 @@
 :root {
-    --corFundo: hsl(0, 0%, 20%);
+    --corFundo: hsl(0, 0%, 85%);
+    --corFundo2: hsl(0, 0%, 90%);
     --accentColor: hsl(120, 30%, 20%);
     --textColor: hsl(30, 50%, 70%);
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--corFundo);
     height: 100vh;
@@ -12,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -26,21 +30,22 @@ nav {
 ul {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 4vmin;
     align-items: center;
     list-style-type: none;
-    margin-right: 20px;
+    margin-right: 4vmin;
 }
 
-a {
+ul a {
+    font-size: 2vmin;
     text-decoration: none;
     color: var(--textColor);
+    transition: color 500ms ease;
 }
 
-a:hover{
-   opacity:0.5;
+ul a:hover{
+    color: hsl(30, 50%, 90%);
 }
-
 
 header {
     display: flex;
@@ -48,18 +53,74 @@ header {
     justify-content: space-between;
     background-color: var(--accentColor);
 }
-.caixa{
-    margin-top: 12%;
-    display: flex;
-    border: solid;
-    border-radius:5px;
-    color: white;
-    margin-right: 900px;
-    padding: 20px 20px 20px 20px;
-   
-}
-.texto-Da-Caixa{
-  margin-left: 400px;
-  
 
+.info {
+    display: inline-flex;
+    position: absolute;
+    justify-content: center;
+}
+
+figure {
+    display: inline-block;
+}
+
+.local {
+    justify-self: center;
+    padding: 60px 80px;
+    background-color: #fff;
+}
+
+figure {
+    max-width: 600px;
+}
+
+figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+figure figcaption {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.info {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+}
+
+.info h2 {
+    font-size: 1.8rem;
+    color: black;
+}
+
+.info p {
+    display: flex;
+    justify-self: center;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #1f3d1f;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    height: 100px;
+    width: 400px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2d592d;
 }
