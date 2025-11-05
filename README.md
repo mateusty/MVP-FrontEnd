@@ -1,5 +1,5 @@
 # MVP FrontEnd UNIFESO 
-                                                    Circuito Terê Verde
+                                              Circuito Terê Verde
 
 ## Sobre o projeto:
 
