@@ -155,4 +155,5 @@ figure figcaption {
     object-fit: cover;      /* preenche a área cortando proporcionalmente */
     border: 6px solid var(--accentColor);
     
+
 }
