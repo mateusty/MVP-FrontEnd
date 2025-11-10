@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    background-image: url(../img/pedras-da-tartaruga.png);
+    background-size: 2000px;
+}
+button,input{
+    border:none ;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width:-webkit-fill-available;
+}
+form{
+    width: 300px;
+}
+.guia{
+  display: flex;
+  white-space: nowrap;
+    
+}

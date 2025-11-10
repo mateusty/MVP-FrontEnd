@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 300PX;
+    background: url(../img/Frades.png),no-repeat;
+    background-size:cover;
+}
+
+button , input{
+    background-color: #fff;
+    border:none ;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width:-webkit-fill-available;
+}
+button:focus{
+    opacity:0.4;
+}
+input:hover{
+    transition: 1s;
+    opacity: 0.4;
+      
+    
+  
+}       
+form{
+    width: 300px;
+    
+}
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+label{
+    color: whitesmoke;
+}
