@@ -21,3 +21,12 @@ form{
   white-space: nowrap;
     
 }
+
+button:focus{
+    transition: 50ms;
+    opacity:0.4;
+}
+input:hover{
+    transition: 1s;
+    opacity: 0.4;
+}
