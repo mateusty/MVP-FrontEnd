@@ -2,8 +2,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:20% ;
-    background: url(../img/portal-de-hercoles.png),no-repeat;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: url(../img/portal-de-hercoles.png);
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
 }
 input,button{
@@ -15,10 +20,10 @@ input,button{
 }
 
 input:hover{
-transition: 1s;
+transition: 500ms;
 opacity: 0.5;
 }
 button:hover{
-transition: 1s;
+transition: 500ms;
 opacity: 0.5;
 }

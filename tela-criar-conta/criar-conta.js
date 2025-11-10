@@ -9,8 +9,7 @@ function visibilidadeCheckbox() {
         checkbox.setAttribute('aria-expanded', 'true');
     }
     else {
-      menuPrincipal.hidden =  true
-       checkbox.setAttribute('aria-expanded', 'false');
+        menuPrincipal.hidden =  true
+        checkbox.setAttribute('aria-expanded', 'false');
     }
-   
 }
