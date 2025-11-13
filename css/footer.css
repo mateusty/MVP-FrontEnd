@@ -1,10 +1,3 @@
-:root {
-    --corFundo: hsl(0, 0%, 85%);
-    --corFundo2: hsl(0, 0%, 90%);
-    --accentColor: hsl(120, 29%, 20%);
-    --textColor: hsl(30, 50%, 70%);
-}
-
 .redes-sociais {
     align-items: center;
 }

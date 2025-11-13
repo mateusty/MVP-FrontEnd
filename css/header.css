@@ -1,7 +1,7 @@
 :root {
-    --corFundo: hsl(0, 0%, 85%);
-    --corFundo2: hsl(0, 0%, 90%);
-    --accentColor: hsl(120, 30%, 20%);
+    --corFundo: hsl(0, 0%, 90%);
+    --corFundo2: hsl(0, 0%, 95%);
+    --accentColor: hsla(120, 30%, 20%);
     --textColor: hsl(30, 50%, 70%);
 }
 
@@ -20,6 +20,7 @@ body {
 
 .logo {
     display: inline-block;
+    transform: translateX(50px);
 }
 
 nav {

@@ -7,8 +7,8 @@ body{
     background-position: center center;
     display: flex;
     height: 100vh;
-    justify-content: center;
     width: 100vw;
+    justify-content: center;
     overflow: hidden;
     padding: 0;
 }
