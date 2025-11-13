@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: url(../img/portal-de-hercoles.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+input,button{
+    border:none ;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width:-webkit-fill-available;
+}
+
+input:hover{
+transition: 500ms;
+opacity: 0.5;
+}
+button:hover{
+transition: 500ms;
+opacity: 0.5;
+}
