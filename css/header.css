@@ -1,0 +1,55 @@
+:root {
+    --corFundo: hsl(0, 0%, 85%);
+    --corFundo2: hsl(0, 0%, 90%);
+    --accentColor: hsl(120, 30%, 20%);
+    --textColor: hsl(30, 50%, 70%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--corFundo);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: inline-block;
+}
+
+nav {
+    position: relative;
+    display: inline-block;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    gap: 4vmin;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 4vmin;
+}
+
+ul a {
+    font-size: 2vmin;
+    text-decoration: none;
+    color: var(--textColor);
+    transition: color 500ms ease;
+}
+
+ul a:hover{
+    color: hsl(30, 50%, 90%);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--accentColor);
+}
