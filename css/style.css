@@ -91,3 +91,17 @@ figure figcaption {
     background-color: #2d592d;
     color: var(--textColor);
 }
+
+.botao_home {
+    position: fixed;
+    height: 3rem;
+    width: 3rem;
+    right: 2%;
+    bottom: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.botao_home:hover {
+    background-color: var(--corFundo);
+}
