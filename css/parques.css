@@ -1,0 +1,28 @@
+.informacao{
+    display: flex;
+    flex-shrink: 0 ;
+    gap: 0.5em;
+}
+
+.card{
+    
+    padding: 1em;
+    text-align: center;
+    border: 0.5em;
+    margin: 0.8em;
+
+}
+.card h1{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.card p{
+    color: #555;
+}
+.img{
+    border-radius: 5px; 
+     margin: 0.8em;
+     height: 10%;
+     
+}
