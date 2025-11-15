@@ -1,8 +1,8 @@
 :root {
-    --corFundo: hsl(0, 0%, 85%);
-    --corFundo2: hsl(0, 0%, 90%);
-    --accentColor: hsl(120, 30%, 20%);
-    --textColor: hsl(30, 50%, 70%);
+    --corFundo: hsl(0, 0%, 90%);
+    --corFundo2: hsl(0, 0%, 95%);
+    --accentColor: hsla(120, 30%, 20%);
+    --textColor: hsl(30, 20%, 85%);
 }
 
 body {
@@ -38,18 +38,19 @@ ul {
 
 ul a {
     font-size: 2vmin;
+    font-weight: bold;
     text-decoration: none;
     color: var(--textColor);
     transition: color 500ms ease;
 }
 
 ul a:hover{
-    color: hsl(30, 50%, 90%);
+    color: hsl(30, 20%, 100%);
 }
 
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: var(--accentColor);
 }

@@ -1,14 +1,49 @@
-:root {
-    --corFundo: hsl(0, 0%, 85%);
-    --corFundo2: hsl(0, 0%, 90%);
-    --accentColor: hsl(120, 30%, 20%);
-    --textColor: hsl(30, 50%, 70%);
+@media (max-width: 768px) {
+
+    .local {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info {
+        display: flex;
+        margin-left: 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .info {
+        display: inline-flex;
+        position: absolute;
+    }
+    
+    .local {
+        transition: transform 500ms ease;
+    }
+
+    .local:hover {
+        transform: translateX(25px);
+    }
+}
+main {
+    background: 
+        linear-gradient(hsla(0, 0%, 50%, 0.4), hsla(0, 0%, 100%, 0.4)),
+        url(/img/backgroundIndex.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .info {
-    display: inline-flex;
-    position: absolute;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
 }
 
 figure {
@@ -16,9 +51,13 @@ figure {
 }
 
 .local {
+    background-color: hsla(0, 0%, 95%, 0.8);
+    margin: 2rem;
+    opacity: 100%;
+    border-radius: 8px;
+    width: 1100px;
     justify-self: center;
     padding: 60px 80px;
-    background-color: #fff;
 }
 
 figure {
@@ -35,13 +74,6 @@ figure figcaption {
     font-weight: bold;
     margin-bottom: 8px;
     color: #333;
-}
-
-.info {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
 }
 
 .info h2 {
@@ -70,9 +102,26 @@ figure figcaption {
     margin-top: 8vmin;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
     background-color: #2d592d;
+    color: var(--textColor);
+}
+
+.botao_home {
+    position: fixed;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    right: 2%;
+    bottom: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.botao_home:hover {
+    background-color: var(--corFundo);
 }
