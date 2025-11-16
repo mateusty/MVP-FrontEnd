@@ -1,50 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
 body{
+    color: #103f16c5;
+    background-image: url('../img/frades.png');
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../img/Frades.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    display: flex;
     height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0;
-}
-
-button , input{
-    background-color: #fff;
-    border:none;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    width:-webkit-fill-available;
-}
-
-button:focus{
-    opacity:0.4;
-}
-
-button:hover {
-    transition: 300ms;
-    opacity: 0.7;
-}
-
-input:hover{
-    transition: 500ms;
-    opacity: 0.7;
 }
 
 form{
-    width: 300px;
-    
+    padding: 50px;
+    background-color: rgba(253, 253, 253, 0.384);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-h1{
+
+#email, #password{
+    padding: 2px;
+    border: 0px solid;
+    border-radius: 4px;
+    background-color: rgba(240, 240, 240, 0.795);
+}
+
+.campo-input{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.entrar{
+    border-radius: 10px;
+    border: 0px solid;
+    background-color: rgba(174, 230, 151, 0.774);
+    height: 25px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.entrar:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+#checkbox{
+    accent-color: rgb(214, 112, 40);
+}
+
+#checkbox:hover{
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+a{
+    height: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.664);
 }
-label{
-    color: whitesmoke;
+
+a:hover{
+    transform: translateY(-1px);
 }
