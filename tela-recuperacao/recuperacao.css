@@ -1,15 +1,12 @@
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-    background: url(../img/portal-de-hercoles.png);
-    background-repeat: no-repeat;
-    background-position: center center;
+    color: #103f16c5;
+    background-image: url('../img/portal-de-hercoles.png');
     background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 input,button{
     border:none ;
@@ -26,4 +23,12 @@ opacity: 0.5;
 button:hover{
 transition: 500ms;
 opacity: 0.5;
+}
+form{
+    padding: 50px;
+    background-color: rgba(253, 253, 253, 0.384);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
