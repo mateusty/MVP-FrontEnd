@@ -54,6 +54,10 @@ main {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 25px;
+
+}
+.geral{
+     font-family:'Times New Roman', Times, serif;
 }
 
 .titulo {
@@ -176,30 +180,157 @@ footer {
     background-color: var(--corFundo);
 }
 
+#imgtrespicos {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 67vmin;
+    background: url(/img/principaltres.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+}
+
+#imgtrespicos::before {
+    content: attr(data-content);
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #333;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#imgtrespicos:hover::before {
+    opacity: 80%;
+}
+
+.banner{
+    flex-shrink: 0 ;
+    gap: 0.5em;
+    background-color: var(--corFundo2);
+    box-shadow: 0.px 15px -6px black;
+    color: black;
+}
 .informacao{
     display: flex;
     flex-shrink: 0 ;
     gap: 0.5em;
+    box-shadow: 0.8px 15px -6px black;
+    
+}
+
+
+.principal{
+    background-color: var(--corFundo);
+
 }
 
 .card{
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em;
     text-align: center;
     border: 0.5em;
     margin: 0.8em;
-
+    gap: 2em;
+    
 }
+
 .card h1{
     font-family: 'Times New Roman', Times, serif;
-
+    padding: 0.8em;
+    text-shadow:3px 3px 10px #000000;
 }
 
-.card p{
-    color: #555;
+
+.section_titulo{
+    padding: 3.5rem;
+    text-align: center;
 }
 .img{
     border-radius: 5px; 
     margin: 0.8em;
     height: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.img_trilhas{
+    width: 25em;
+    height: 25em;
+    display: block;
+}
+.caixa{
+    max-width: 1276px;
+    margin: auto;
+    padding: 1px;
+
+}
+.btn{
+    background-color: beige ;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.1rem 4.6rem;
+    display: inline-block;
+    margin-top: 1.2em;
+
+}
+
+.section_btn{
+    margin: 2rem 0;
+}
+
+
+.menu_trilhas{
+    display: flex;
+    text-align: center;
+    gap: 2rem;
+    overflow-x: auto;
+    
+}
+
+.texto_trilhas{
+    padding:1rem ;
+}
+
+.trilhas{
+    text-align: center;
+    padding: 10px;
+}
+
+.menu_cards{
+    border: 1px, solid rgb(255, 255, 255);
+    border-radius: 10px;
+    flex: 0 0 5em;
+}
+
+.cabecalho_rodape_cores{
+    background-color: hsla(120, 30%, 20%); 
+    color:  hsl(30, 20%, 85%); 
+}
+
+.rodape{
+    height: 8em;
+    width: 20rem;
+    color: var(--textColor);
+}
+
+.rodape h2{
+    text-align: center;
+  
+}
+
+

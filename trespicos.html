@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <header>
+     <header>
         <a href="/index.html">
-            <img class="logo" src="img/logo.png" alt="Logo Terê Verde" height="100px" width="100px">
-        </a>
+        <img class="logo" src="img/logo.png" alt="Logo Terê Verde" height="100px" width="100px">
         <nav>
             <ul>
                 <li><a href="index.html">Sobre</a></li>
@@ -23,79 +22,125 @@
             </ul>
         </nav>
     </header>
-<main>
-    <img class='img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV0Q_c6q2HJfhXoECgsaXqGXJDCJ5jhz4Iag&s" width="400px" alt="imagem Parque Estadual Três Picos">
-
-<h1>Parque Estadual Três Picos</h1>
-    <h2>Sobre:</h2>
-        <p>O Parque Estadual dos Três Picos (PETP) localiza-se na Região Serrana do Estado do Rio de Janeiro, no Brasil.
-            O seu nome evoca os Três Picos de Friburgo, imponente conjunto de montanhas graníticas cuja altitude chega a 2 366 metros[1]
-            acima do nível do mar e é o ponto culminante de toda a Serra do Mar.</p>
-    <div id="trilhas">
-        <fieldset> 
-        <legend><h2>Trilhas:</h2></legend>
-            <ul>
-
-            <li>Bico Maior</li>     <img src="" alt="foto da trilha"> 
-            <li>Três Torres de Bonsucesso</li>   <img src="" alt="foto da trilha">   
-            <li>Três Torres de Bonsucesso</li> <img src="" alt="foto da trilha"> 
-            <li>Trilha do Alto da Boa Vista</li>    <img src="" alt="foto da trilha">  
-            
-            <li>Picos Menor e Médio</li> <img src="" alt="foto da trilha"> 
-            <li>Cabeça do Dragão</li>     <img src="" alt="foto da trilha"> 
-            <li>Trilha da Pedra do Calçado</li> <img src="" alt="foto da trilha"> 
-    </ul>
-        </fieldset>
-    </div>
-            <div id="outros atrativos">
-        <fieldset> 
-        <legend><h2>Outros atrativos:</h2></legend>
-            <ul>
-            <li>Mirante do Soberbo</li>     <img src="" alt="foto da trilha"> 
-            <li>Pedra do Elefante</li>   <img src="" alt="foto da trilha">   
-            </ul>
-        </fieldset>
+<main class="principal"> 
+    <div id="imgtrespicos" data-content="Parque Estadual Três Picos"></div>
+    <h1 class="sobre">Sobre</h1>
+    <div class="banner caixa">
+        <section class="card"> 
+            <div class="itens">
+                 <p>O Parque Estadual dos Três Picos (PETP) localiza-se na Região Serrana do Estado do Rio de Janeiro, no Brasil.
+                O seu nome evoca os Três Picos de Friburgo, imponente conjunto de montanhas graníticas cuja altitude chega a 2 366 metros[1]
+                acima do nível do mar e é o ponto culminante de toda a Serra do Mar.
+                 </p>
+                <a href="#" class="btn">explore</a>  
+            </div> 
+        </section>
     </div>
 
-        <br>
-    <fieldset id="objetivos">
-        <legend><h2>Nossos objetivos:</h2></legend>
-        <ul>
-        <li>Assegurar a preservação dos remanescentes da Mata Atlântica da porção fluminense da Serra do Mar, bem como recuperar as áreas degradadas ali existentes</li>        
-        
-        <li>Proteger espécies raras, endêmicas e ameaçadas de extinção ou insuficientemente conhecidas da fauna e da flora nativas</li>
+    <div class="cor_sessao_principal">
+        <section class="trilhas Caixa"> 
+                <legend><h2 class="section_titulo">Trilhas</h2></legend>
+                    <div class="menu_trilhas">
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="/img/mirante.webp" alt="foto da trilha">
+                            <div class="texto_trilhas">
+                                <h3>Trilha do Mirante do Soberbo</h3>
+                                <p>
+                                   Trilha saindo ao sul de Teresópolis, na divisa do Parque da Serra dos Órgãos. O Mirante do Soberbo fica logo na saída da Rodovia Santos Dumont. O local é acessível a todas as idades e há um pequeno estacionamento no local
+                                   Ótimo local para apreciar o nascer do sol. A vista do parque é belíssima. 
+                                </p>
+                            </div> 
+                        </article>
+
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="/img/caixa de fosfuro.png" alt="caixa de fosfuro">
+                            <div class="texto_trilhas">
+                                <h3>Pedra Caixa de Fósforo</h3>
+                                <p>
+                                    A Caixa (ou Caixinha) de Fósforos, que também já foi conhecida como “Pedra dos Milagres” justamente por conta das características acima, é mais uma impressionante formação rochosa localizada em Teresópolis e que atrai os olhares de montanhistas e curiosos de todo o mundo para o município. 
+                                </p>
+                            </div> 
+                        </article> 
                         
-        <li>Integrar o Mosaico de Áreas Protegidas da Mata Atlântica Central Fluminense, no Estado do Rio de Janeiro, contribuindo para a conectividade</li>
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="/img/dragão.avif" alt="trilha cabeça do drgão">
+                            <div class="texto_trilhas">
+                                <h3>Cabeça do Dragão</h3>
+                                <p>
+                                    A primeira parte é bem marcada e com vegetação mais alta, cobrindo do sol, e há placas. Em pouco tempo a trilha passa para um aclive constante, mas não muito pesado. Segue assim até um mirante que já está em altitude suficiente para uma vista espetacular do Capacete e dos Três Picos.
+                                </p>
+                            </div> 
+                        </article> 
 
-        <li>Contribuir com a melhoria da qualidade de vida da população por meio do fornecimento, indireto, de serviços e produtos ambientais</li>
-    </ul>
-    </fieldset>
-    <br>
-    <fieldset>
-    <br>
-    <div id="redes-sociais">
-        <legend><h2>Nossas redes sociais:</h2></legend>
-            <ul>
-                <li ><a href="https://www.instagram.com/parqueestadualdostrespicos/"></a><h5 class="links">nosso instagram</h5> </li>
-                <img src="https://thumbs.dreamstime.com/b/nuevo-icono-de-instagram-126704561.jpg" height= 15px alt="logotipo instagram">
-                    <li ><a href="https://www.facebook.com/parqueestadualdostrespicos/"></a><h5 class="links">nosso facebook</h5></li>
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="/img/torres de bonsucesso.webp" alt="trilha cabeça do drgão">
+                            <div class="texto_trilhas">
+                                <h3>Torres de Bonsucesso</h3>
+                                <p>
+                                    A trilha é bastante íngreme, com desnível de aproximadamente 800 metros se o caminhante seguir até a Torre Central e cerca de 1000 metros de diferença entre saída e chegada se o destino for a Torre Maior.
+                                </p>
+                            </div> 
+                        </article> 
 
-                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" height= 15px alt="logotipo facebook">
-                <li><a href="inea.petp@gmail.com"></a><h5 class="links">nosso email</h5></li>
-                    <img src="https://th.bing.com/th/id/R.4690c484d6b5557b507a362c15bbc759?rik=91%2bDKczJvflNxQ&pid=ImgRaw&r=0" height= 15px alt="logo email">
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="img/branca de neve.jpg" alt="trilha cabeça do drgão">
+                            <div class="texto_trilhas">
+                                <h3>Pico Branca de Neve </h3>
+                                <p>
+                                   A trilha para a Branca de Neve está localizada no município de Teresópolis dentro do local conhecido como Vale dos Frades. Vale único e oferece opções de lazer para todos os públicos. É a montanha mais alta do conjunto das Pedras dos Frades, a sudeste do alinhamento formado pelo Morro dos Cabritos e Pedra das Antas. Fica ao fundo do vale do Rio das Antas.
+                                </p>
+                            </div> 
+                        </article> 
 
-                <li><h5>Nosso telefone: +55 (21) 2334-5823</h5> </li>
-                    <img src="https://toppng.com/uploads/preview/logotipo-telefono-11551049913ejyjlndllf.png" height= 15px alt="logotipo telefone">   
-            </ul>
+                        <article class="menu_cards">
+                            <img class="img_trilhas" src="/img/dois bicos.png" alt="dois bicos">
+                            <div class="texto_trilhas">
+                                <h3> Bico Maior</h3>
+                                <p>
+                                    Dois Bicos é um conjunto rochoso localizado no vale das Sebastianas, já dentro da área do parque dos Três Picos. O acesso é pela estrada Teresópolis-Friburgo, a cerca de 20 km de Teresópolis. Tomar a estradinha de terra à direita. 
+                                </p>
+                            </div>         
+                    </div>
+                     <a class="btn section_btn" href="#"> Ver mais trilhas</a>
+        </section>
     </div>
-    
-    </fieldset>
-</main>
+ 
+    <div class="cor_infomacoes caixa">
+            <section id="objective"> <!--Objetivo-->
+                <div class="objetivo">
+                    <h2>Nosso Objetivo</h2>
+                </div>
 
-<footer>
+                <div class="corpoObjetivo">
+                    <div>Assegurar a preservação dos remanescentes da Mata Atlântica da porção fluminense da Serra do Mar, bem como recuperar as áreas degradadas ali existentes</div>
+                    <div>Proteger espécies raras, endêmicas e ameaçadas de extinção ou insuficientemente conhecidas da fauna e da flora nativas</div>
+                    <div>Integrar o Mosaico de Áreas Protegidas da Mata Atlântica Central Fluminense, no Estado do Rio de Janeiro, contribuindo para a conectividade</div>
+                    <div>Contribuir com a melhoria da qualidade de vida da população por meio do fornecimento, indireto, de serviços e produtos ambientais</div>
+                </div>
+            </section>
+                
+            <section id="conc"> <!--Conclusao-->
+                <div class="conclusaoTitulo">
+                <h2>Conclusão</h2>
+                </div>
+                <div class="conclusao">
+                    <p>Hoje, o Parque Natural Municipal Montanhas de Teresópolis é muito mais do que uma reserva natural; é um símbolo do compromisso contínuo da comunidade em preservar e valorizar o rico patrimônio ambiental da região, garantindo um futuro sustentável para as gerações futuras. Venha explorar e descobrir as maravilhas deste tesouro natural.</p>
+                </div>
+            </section>
 
-</footer>
+        </main>
 
+        <footer>
+            <section> <!--Direitos autorais-->
+                <p class="paragrafo-footer">&copy 2025&ensp;<a href="index.html">Terê Verde</a>. Todos os direitos reservados. </p>
+            </section>
+
+            <section> <!--Contato-->
+            <div class="paragrafo-footer">
+                <p>&phone; : (21) 2043-3626&ensp;|</p> <p>&ensp;Email: parquemontanhas@teresopolis.rj.gov.br</p>
+            </div>
+            </section>
+
+        </footer>
 </body>
 </html>
->>>>>>> 4a379d0327ba0ffa11fa5f2071a8683f44f69363
