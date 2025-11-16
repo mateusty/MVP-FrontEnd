@@ -56,6 +56,22 @@ main {
     margin-top: 25px;
 }
 
+.titulo {
+    display: flex;
+    justify-content: left;
+    position: relative;
+    margin-left: 250px;
+    margin-bottom: -50px;
+}
+
+.titulo2 {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    margin-right: 300px;
+    margin-bottom: -50px;
+}
+
 .textoTrilha {
     display: flex;
     padding: 15px;
@@ -65,6 +81,8 @@ main {
 .textoTrilha p {
     padding: 15px;
     margin-right: 50px;
+    background-color: #5555551a;
+    border-radius: 10px;
 }
 
 .textoTrilha img {
@@ -120,25 +138,21 @@ footer {
 
 .paragrafo-footer {
     font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .paragrafo-footer a {
     text-decoration: none;
     color: var(--textColor);
+   
 }
 
 .paragrafo-footer a:hover{
     color: #209c58;
 }
 
-.footerContato {
-    display: flex;
-    justify-items: center;
-    margin-left: 34%;
-    margin-bottom: 20px;
-}
+
 
 .botao_home {
     position: fixed;
