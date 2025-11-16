@@ -10,7 +10,7 @@ main {
     justify-content: center;
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 67vmin;
     background: url(/img/montanhasTere2.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
