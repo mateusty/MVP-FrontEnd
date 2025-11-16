@@ -54,3 +54,19 @@ header {
     justify-content: space-around;
     background-color: var(--accentColor);
 }
+
+.botao_home {
+    position: fixed;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    right: 2%;
+    bottom: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.botao_home:hover {
+    background-color: var(--corFundo);
+}
