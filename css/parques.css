@@ -44,7 +44,7 @@ main {
     opacity: 80%;
 }
 
-.corpoSobre, .pedraAlpina, .trilhaJacu, .trilhaTangara {
+.corpoSobre, .pedraAlpina, .trilhaJacu, .trilhaTangara, .conclusao {
     background-color: var(--corFundo2);
     margin: 2rem;
     opacity: 100%;
@@ -52,6 +52,7 @@ main {
     width: 1100px;
     justify-self: center;
     padding: 60px 80px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sobre {
@@ -59,6 +60,116 @@ main {
     margin-bottom: 10px;
     margin-top: 25px;
 }
+
+ .pedraAlpina, .trilhaJacu, .trilhaTangara {
+    text-align: center;
+}
+
+.textoTrilha {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+.textoTrilha p {
+    padding: 15px;
+    margin-right: 50px;
+}
+
+.textoTrilha img {
+    border-radius: 5px;
+}
+
+.pJacu {
+    margin-left: 50px;
+}
+
+.objetivo, .conclusaoTitulo, .sobre {
+    border-bottom: 2px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+.corpoObjeftivo li{
+    background-color: azure;
+    margin: 20px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.corpoObjetivo li {
+    background-color: var(--corFundo2);
+    width: 600px;
+    height: 100px;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+    margin-left: 70px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.corpoObjetivo li:hover {
+    transform: translateY(-5px);
+    background-color:#209c58;
+    color: azure;
+}
+
+footer {
+    background-color: var(--accentColor);
+    color: var(--textColor);
+}
+
+.paragrafo-footer {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paragrafo-footer a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+.paragrafo-footer a:hover{
+    color: #209c58;
+}
+
+.footerContato {
+    display: flex;
+    justify-items: center;
+    margin-left: 34%;
+    margin-bottom: 20px;
+}
+
+.botao_home {
+    position: fixed;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    right: 2%;
+    bottom: 2%;
+    border: 2px solid black;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+.botao_home:hover {
+    background-color: var(--corFundo);
+}
+
+
+
+
+
+
+
 
 .informacao{
     display: flex;
