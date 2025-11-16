@@ -61,7 +61,7 @@ main {
     margin-top: 25px;
 }
 
- .pedraAlpina, .trilhaJacu, .trilhaTangara {
+.pedraAlpina, .trilhaJacu, .trilhaTangara {
     text-align: center;
 }
 
@@ -90,35 +90,36 @@ main {
     margin-bottom: 10px;
     margin-top: 25px;
 }
-.corpoObjeftivo li{
-    background-color: azure;
-    margin: 20px;
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 15px;
-    text-align: center;
+
+#objective, #about, #conclusion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.corpoObjetivo li {
-    background-color: var(--corFundo2);
-    width: 600px;
-    height: 100px;
-    display: flex;
+.corpoObjetivo {
+    display: grid;
+    grid-template-columns: 40rem 40rem;
     gap: 20px;
-    padding: 20px;
-    margin: 20px;
+}
+
+.corpoObjetivo div{
+    background-color: var(--corFundo2);
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
     align-items: center;
-    margin-left: 70px;
+    height: 100px;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    
+    transition: all 0.3s ease-in-out;
 }
 
-.corpoObjetivo li:hover {
+.corpoObjetivo div:hover {
     transform: translateY(-5px);
     background-color:#209c58;
-    color: azure;
+    color: var(--corFundo2);
 }
 
 footer {
@@ -163,13 +164,6 @@ footer {
 .botao_home:hover {
     background-color: var(--corFundo);
 }
-
-
-
-
-
-
-
 
 .informacao{
     display: flex;

@@ -1,6 +1,6 @@
 :root {
-    --corFundo: hsl(0, 0%, 90%);
-    --corFundo2: hsl(0, 0%, 95%);
+    --corFundo: hsl(131, 10%, 85%);
+    --corFundo2: hsl(131, 10%, 90%);
     --accentColor: hsla(120, 30%, 20%);
     --textColor: hsl(30, 20%, 85%);
 }
