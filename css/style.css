@@ -29,7 +29,7 @@
 main {
     background: 
         linear-gradient(hsla(0, 0%, 50%, 0.4), hsla(0, 0%, 100%, 0.4)),
-        url(/img/backgroundIndex.jpg);
+        url("/img/backgroundIndex.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
