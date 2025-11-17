@@ -11,7 +11,7 @@ main {
     position: relative;
     width: 100%;
     height: 67vmin;
-    background: url("../img/montanhasTere2.jpeg");
+    background: url("https://mateusty.github.io/MVP-FrontEnd/img/montanhasTere2.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
