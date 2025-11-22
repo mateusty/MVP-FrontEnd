@@ -89,7 +89,7 @@ main {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 25px;
-
+    
 }
 .geral{
      font-family:'Times New Roman', Times, serif;
@@ -111,10 +111,14 @@ main {
     margin-bottom: -50px;
 }
 
+.titulo_trilhas h1{
+    text-align: center;
+}
 .textoTrilha {
     display: flex;
     padding: 15px;
     align-items: center;
+    
 }
 
 .textoTrilha p {
@@ -209,13 +213,7 @@ footer {
     background-color: var(--corFundo);
 }
 
-.banner{
-    flex-shrink: 0 ;
-    gap: 0.5em;
-    background-color: var(--corFundo2);
-    box-shadow: 0.px 15px -6px black;
-    color: black;
-}
+
 .informacao{
     display: flex;
     flex-shrink: 0 ;
@@ -224,28 +222,25 @@ footer {
     
 }
 
-
+.itens{
+    padding: 10px;
+}
 .principal{
     background-color: var(--corFundo);
 
 }
 
 .card{
+    background-color: var(--corFundo2);
+    width: 1100px;
+    height: 300px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
+    padding: 60px 80px;
     text-align: center;
-    border: 0.5em;
-    margin: 0.8em;
-    gap: 2em;
-    
-}
-
-.card h1{
-    font-family: 'Times New Roman', Times, serif;
-    padding: 0.8em;
-    text-shadow:3px 3px 10px #000000;
+    justify-content: center;
+    letter-spacing: .1rem;
+    box-shadow: 0 1px 8px 0px rgb(255, 255, 255);
+    font-size: 17px;
 }
 
 
@@ -274,13 +269,23 @@ footer {
 
 }
 .btn{
-    background-color: beige ;
+    color:  hsl(30, 20%, 85%);
+    background-color: hsla(120, 30%, 20%);
     border-radius: 4px;
     font-size: 1.1rem;
     text-decoration: none;
-    padding: 0.1rem 4.6rem;
+    padding: 0.3rem 4.6rem;
     display: inline-block;
     margin-top: 1.2em;
+    transition-property: all;
+    transition-duration: 1s;
+    
+}
+.btn:hover{
+    background: rgb(45, 103, 45);
+    box-shadow: 0 0px 2px 2px rgb(7, 21, 8);
+    outline: 2px solid rgb(0, 0, 0);
+    color:  hsl(30, 32%, 93%);
 
 }
 .section_btn{
@@ -291,18 +296,30 @@ footer {
 .menu_trilhas{
     display: flex;
     text-align: center;
+    justify-content: center;
     gap: 2rem;
-    overflow-x: auto;
+ 
     
 }
 
-.texto_trilhas{
-    padding:1rem ;
+.titulo_trilhas{
+    letter-spacing: .3rem;
+    text-align: center;
+    text-decoration:underline;
+    font-family: 'Courier New', Courier, monospace;
+    text-underline-offset: 10px;
+    padding: 20px;
+
+}
+
+.section_titulo{
+    letter-spacing: .2rem;
+     text-decoration:underline;
+     text-underline-offset: 10px;
 }
 
 .trilhas{
     text-align: center;
-
     padding: 10px;
 }
 
@@ -310,6 +327,9 @@ footer {
     border: 1px, solid rgb(255, 255, 255);
     border-radius: 10px;
     flex: 0 0 5em;
+    background-color: var(--corFundo2);
+    box-shadow: 0 5px 15px -6px rgb(255, 255, 255);
+    
 }
 
 .cabecalho_rodape_cores{
