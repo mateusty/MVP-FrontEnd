@@ -283,8 +283,8 @@ footer {
 }
 .btn:hover{
     background: rgb(45, 103, 45);
-    box-shadow: 0 0px 2px 2px rgb(7, 21, 8);
-    outline: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0px 2px 2px rgb(26, 80, 29);
+   
     color:  hsl(30, 32%, 93%);
 
 }
