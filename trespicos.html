@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="geral">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +22,19 @@
             </ul>
         </nav>
     </header>
-<main class="principal"> 
-    <div id="imgtrespicos" data-content="Parque Estadual Três Picos"></div>
+
+     <button class="botao_home" id="#inicio">
+        <a href="#">
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg width="30px" height="40px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 8L2 8L2 6L8 5.24536e-07L14 6L14 8L10 8L10 16L6 16L6 8Z" fill="#000000" />
+            </svg>
+        </a>
+        </button>
+
+<main class="principal">
+     
+    <div id="imgtres_picos" data-content="Parque Estadual Três Picos"></div>
         <h1 class="titulo_trilhas">Sobre</h1>
     
     <div class="caixa">
@@ -35,79 +46,101 @@
                 do Rio de Janeiro e tem sua história ligada à preservação da Mata Atlântica fluminense. Sua fundação buscou formar um corredor ecológico para garantir a biodiversidade,
                 interligando áreas protegidas do estado. O nome deriva das montanhas imponentes que o compõem, com destaque para o Pico Maior, o ponto mais alto da Serra do Mar. 
                  </p>
-                <a href="#" class="btn">explore</a>  
+                <a href="#explore" class="btn" id="explore">explore</a>  
             </div> 
         </section>
     </div>
 
     <div class="cor_sessao_principal">
-        <section class="trilhas Caixa"> 
+        <section class="trilhas Caixa"> <!--Menu das Trilhas-->
                 <legend><h2 class="section_titulo">Trilhas</h2></legend>
-                    <div class="menu_trilhas">
+                    <div class="menu_trilhas" id="explore">
 
                         <article class="menu_cards">
-                            <img class="img_trilhas" src="/img/caixa de fosfuro.png" alt="caixa de fosfuro">
+                            <img class="img_trilhas" src="/img/caixa de fosfuro.jpg" alt="caixa de fosfuro">
                             <div class="texto_trilhas">
                                 <h3>Pedra Caixa de Fósforo</h3>
                                 <p>
-                                    A Caixa (ou Caixinha) de Fósforos, que também já foi conhecida como “Pedra dos Milagres” justamente por conta das características acima, é mais uma impressionante formação rochosa localizada em Teresópolis e que atrai os olhares de montanhistas e curiosos de todo o mundo para o município. 
+                                    A Caixa (ou Caixinha) de Fósforos, que também já foi conhecida como “Pedra dos Milagres” 
+                                    justamente por conta das características acima, é mais uma impressionante formação rochosa 
+                                    localizada em Teresópolis e que atrai os olhares de montanhistas e curiosos de todo o mundo para o município. 
                                 </p>
                             </div> 
                         </article> 
                         
                         <article class="menu_cards">
-                            <img class="img_trilhas" src="/img/dragão.avif" alt="trilha cabeça do drgão">
+                            <img class="img_trilhas" src="/img/dragão.jpg" alt="trilha cabeça do drgão">
                             <div class="texto_trilhas">
                                 <h3>Cabeça do Dragão</h3>
                                 <p>
-                                    A primeira parte é bem marcada e com vegetação mais alta, cobrindo do sol, e há placas. Em pouco tempo a trilha passa para um aclive constante, mas não muito pesado. Segue assim até um mirante que já está em altitude suficiente para uma vista espetacular do Capacete e dos Três Picos.
+                                    A primeira parte é bem marcada e com vegetação mais alta, cobrindo do sol, e há placas. 
+                                    Em pouco tempo a trilha passa para um aclive constante, mas não muito pesado. 
+                                    Segue assim até um mirante que já está em altitude suficiente para uma vista espetacular do Capacete e dos Três Picos.
                                 </p>
                             </div> 
                         </article> 
 
                         <article class="menu_cards">
-                            <img class="img_trilhas" src="/img/dois bicos.png" alt="dois bicos">
+                            <img class="img_trilhas" src="/img/dois bicos.jpg" alt="dois bicos">
                             <div class="texto_trilhas">
                                 <h3> Dois Bicos</h3>
                                 <p>
-                                    Dois Bicos é um conjunto rochoso localizado no vale das Sebastianas, já dentro da área do parque dos Três Picos. O acesso é pela estrada Teresópolis-Friburgo, a cerca de 20 km de Teresópolis. Tomar a estradinha de terra à direita. 
+                                    Dois Bicos é um conjunto rochoso localizado no vale das Sebastianas, já dentro da área do parque dos Três Picos. O acesso é pela estrada Teresópolis-Friburgo, a cerca de 20 km de Teresópolis. 
+                                    Tomar a estradinha de terra à direita. 
                                 </p>
                             </div>         
                     </div>
-                     <a class="btn section_btn" href="#"> Ver mais trilhas</a>
+                     <a class="btn section_btn" href="#ver_mais"> Ver mais trilhas</a>
         </section>
 
-         <article class="trilha">
-                <img class="img_trilhas" src="img/branca de neve.jpg" alt="trilha cabeça do drgão">
-                <div class="texto_trilhas">
-                    <h3>Pico Branca de Neve </h3>
-                    <p>
-                        A trilha para a Branca de Neve está localizada no município de Teresópolis dentro do local conhecido como Vale dos Frades. Vale único e oferece opções de lazer para todos os públicos. É a montanha mais alta do conjunto das Pedras dos Frades, a sudeste do alinhamento formado pelo Morro dos Cabritos e Pedra das Antas. Fica ao fundo do vale do Rio das Antas.
-                    </p>
-                </div> 
-        </article> 
     </div>
+        <!--Trilhas Ver mais-->
+        <article class="trilha_picos" id="ver_mais">
+            <div class="img_div">
+                <img class="img_sessao_trilhas" src="img/branca de neve.jpg" alt="trilha cabeça do drgão">
+            </div>
 
-     <article class="trilha">
-        <img class="img_trilhas" src="/img/torres de bonsucesso.webp" alt="trilha cabeça do drgão">
-        <div class="texto_trilhas">
-            <h3>Torres de Bonsucesso</h3>
+            <h3>Pico Branca de Neve </h3>
+
+            <div class="texto_trilhas_ver_mais">
+                
+                <p>
+                    A trilha para a Branca de Neve está localizada no município de Teresópolis dentro do local conhecido como Vale dos Frades.
+                     Vale único e oferece opções de lazer para todos os públicos. É a montanha mais alta do conjunto das Pedras dos Frades, a sudeste do alinhamento formado pelo Morro dos Cabritos e Pedra das Antas.
+                      Fica ao fundo do vale do Rio das Antas.
+                </p>
+            </div> 
+        </article> 
+    
+
+    <article class="trilha_picos">
+       
+         <div class="texto_trilhas_ver_mais">
             <p>
                 A trilha é bastante íngreme, com desnível de aproximadamente 800 metros se o caminhante seguir até a Torre Central e cerca de 1000 metros de diferença entre saída e chegada se o destino for a Torre Maior.
             </p>
-        </div>  
+        </div> 
+
+        <h3>Torres de Bonsucesso</h3>
+        
+            <img class="img_sessao_trilhas" src="/img/torres de bonsucesso.jpg" alt="trilha cabeça do drgão">
+
     </article> 
 
-     <article class="trilha">
-                            <img class="img_trilhas" src="/img/mirante.webp" alt="foto da trilha">
-                            <div class="texto_trilhas">
-                                <h3>Trilha do Mirante do Soberbo</h3>
-                                <p>
-                                   Trilha saindo ao sul de Teresópolis, na divisa do Parque da Serra dos Órgãos. O Mirante do Soberbo fica logo na saída da Rodovia Santos Dumont. O local é acessível a todas as idades e há um pequeno estacionamento no local
-                                   Ótimo local para apreciar o nascer do sol. A vista do parque é belíssima. 
-                                </p>
-                            </div> 
-                        </article>
+     <article class="trilha_picos">
+        
+            <img class="img_sessao_trilhas" src="/img/mirante.jpg" alt="foto da trilha">
+
+        <h3>Trilha do Mirante do Soberbo</h3>
+
+        <div class="texto_trilhas_ver_mais">
+            <p>
+                Trilha saindo ao sul de Teresópolis, na divisa do Parque da Serra dos Órgãos. O Mirante do Soberbo fica 
+                logo na saída da Rodovia Santos Dumont. O local é acessível a todas as idades e há um pequeno estacionamento no local
+                Ótimo local para apreciar o nascer do sol. A vista do parque é belíssima. 
+            </p>
+        </div> 
+    </article>
  
     <div class="cor_infomacoes caixa">
             <section id="objective"> <!--Objetivo-->
@@ -128,7 +161,11 @@
                 <h2>Conclusão</h2>
                 </div>
                 <div class="conclusao">
-                    <p>Hoje, o Parque Natural Municipal Montanhas de Teresópolis é muito mais do que uma reserva natural; é um símbolo do compromisso contínuo da comunidade em preservar e valorizar o rico patrimônio ambiental da região, garantindo um futuro sustentável para as gerações futuras. Venha explorar e descobrir as maravilhas deste tesouro natural.</p>
+                    <p>
+                        Hoje, o Parque Natural Municipal Montanhas de Teresópolis é muito mais do que uma reserva natural; 
+                        é um símbolo do compromisso contínuo da comunidade em preservar e valorizar o rico patrimônio ambiental da região, 
+                        garantindo um futuro sustentável para as gerações futuras. Venha explorar e descobrir as maravilhas deste tesouro natural.
+                    </p>
                 </div>
             </section>
 
