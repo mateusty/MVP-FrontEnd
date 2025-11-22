@@ -45,7 +45,7 @@ main {
     position: relative;
     width: 100%;
     height: 67vmin;
-    background: url(/img/sdo2.jpeg);
+    background: url("https://mateusty.github.io/MVP-FrontEnd/img/sdo2.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -61,7 +61,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.541);
+    background-color: #ffffff8a;
     height: 100%;
     width: 100%;
     opacity: 0;
@@ -76,7 +76,7 @@ main {
     position:relative;
     width:100%;
     height: 67vmin;
-    background: url(/img/teste_picos.avif);
+    background: url("https://mateusty.github.io/MVP-FrontEnd/img/teste_picos.avif");
     background-repeat: no-repeat;
     background-position:center center;
     background-size: cover;
