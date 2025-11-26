@@ -152,7 +152,6 @@ main {
 .textoTrilha p {
     padding: 15px;
     margin-right: 50px;
-    background-color: #5555551a;
     border-radius: 8px;
 }
 
@@ -340,8 +339,7 @@ footer {
     text-align: center;
     justify-content: center;
     gap: 2rem;
- 
-    
+
 }
 
 .titulo_trilhas{
@@ -386,7 +384,6 @@ footer {
 
 .texto_trilhas p{
     padding: 1px;
-    background-color: #5555551a;
 
 }
 
@@ -402,7 +399,6 @@ footer {
     object-position: center;
     text-align: center;
     padding: 20px 10px;
-    background-color: #5555551a;
     letter-spacing: .1rem;
     margin: 0;
     
