@@ -3,44 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="criar-conta.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/header.css">
     <script src="criar-conta.js"defer></script>
     <title>Criar-conta</title>
 </head>
-<form>
+
 <body>
+    <header>
+        <a href="/index.html">
+        <img class="logo" src="../img/logo.png" alt="Logo Terê Verde" height="100px" width="100px">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Sobre</a></li>
+                <li><a href="../parnaso.html">Serra dos órgãos</a></li>
+                <li><a href="../trespicos.html">Três Picos</a></li>
+                <li><a href="../montanhasTere.html">Montanhas de Teresópolis</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
     <label>Nome completo</label>
-    <div>
     <input type="text" name="nome">
-    </div>
     <label>Data de nascimento</label>
     <input type="date" name="data" placeholder="dd/mm/aaaa">
-    <div>
     <label>E-mail</label>
     <input type="email" name="emial" placeholder="exemplo@gmail.com">
-    </div>
-    <div>
     <label>Senha</label>
     <input type="password" name="senha">
-    </div>
-    <div>
-    <label>numero</label>
+    <label>Número</label>
     <input type="text" name="numero" placeholder="(ddd)*********">
-    </div>
     <label>Cidade</label>
     <input type="text" name="cidade">
-    <div>
     <label class="guia">Você é um guia?
     <input id="alterar" type="checkbox" onchange="visibilidadeCheckbox()"  aria-controls="menuPrincipal"aria-expanded="false">
     </label>
     <div id="menuPrincipal" hidden>
-    <label>Informe o numero do cadastur</label>
+    <label>Informe o número do Cadastur</label> <br>
     <input type="text" name="cadastur" placeholder="00.000000.00/0000-0">
     </div>
-    <div>
     <button class="cadastrar" type="submit" onclick="event.preventDefault();window.location.href='../tela-login/login.html'">Cadastrar</button>
-    </div>
-
+    </main>
 </body>
-</form>
 </html>
