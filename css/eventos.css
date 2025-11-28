@@ -54,6 +54,10 @@ body {
     background-color: var(--corFundo2);
 }
 
+.eventos p {
+    color: #333
+}
+
 p {
     text-align: center;
 }
