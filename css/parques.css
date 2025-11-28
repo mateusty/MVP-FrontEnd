@@ -209,7 +209,7 @@ body {
 
 .corpoObjetivo div:hover {
     transform: translateY(-5px);
-    background-color:#209c58;
+    background-color: #209c58;
     color: var(--corFundo2);
 }
 

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/eventos.css">
+    <script src="js/eventos.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,11 +26,44 @@
     </header>
 
     <main>
-        <div class="container">
-            <div class="eventos"></div>
+        <h1 style="display: flex; justify-content: center;">Eventos</h1>
+        <div class="container" id="container">
+            <div id="msgVazio">Não há eventos disponíveis</div>
         </div>
-        <div class="container">
-            <button class="addEventos">Adicionar Evento</button>
+
+        <hr>
+        
+        <div id="addEvento">
+            <button class="addEvento" onclick="toggleForm()">Adicionar Evento</button>
+        </div>
+
+        <div id="background">
+        <div id="formEvento">
+        <form>
+            <div class="separador">
+            <label for="title">Título:</label>
+            <input type="text" id="title">
+            </div>
+
+            <div class="separador">
+            <label for="description">Descrição:</label>
+            <input type="text" id="description">
+            </div>
+
+            <div class="separador">
+            <label for="data"> Data:</label>
+            <input type="date" id="data">
+            </div>
+
+            <div class="separador" id="horario">
+            <label> Horário: </label>
+            De: <input type="time" id="hourStart">
+            Até: <input type="time" id="hourEnd">
+            </div>
+        </form>
+        <button class="buttonEvento" onclick="addEvento()"> Adicionar </button>
+        <button class="buttonEvento" onclick="toggleForm()"> Cancelar </button>
+        </div>
         </div>
     </main>
 

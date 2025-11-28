@@ -1,6 +1,14 @@
 main {
     background-color: var(--corFundo);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100%;
+        background: 
+        linear-gradient(hsla(0, 0%, 90%, 0.8), hsla(0, 0%, 100%, 0.8)),
+        url("https://mateusty.github.io/MVP-FrontEnd/img/backgroundIndex.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
 }
 
 body {
@@ -13,4 +21,114 @@ body {
     padding: 0;
     overflow-x: hidden;
     box-sizing: border-box;
+}
+
+.container {
+    justify-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#msgVazio {
+    font-size: 3rem;
+    color: #444;
+}
+
+
+.eventos {
+    min-width: 240px;
+    max-width: 240px;
+    min-height: 240px;
+    max-height: 1000px;
+    flex: 0 1 auto;
+    align-self:center;
+    border-radius: 10px;
+    margin: 1rem;
+    box-shadow: 0px 3px 3px hsl(131, 3%, 50%);
+    padding: 1rem;
+    background-color: var(--corFundo2);
+}
+
+p {
+    text-align: center;
+}
+
+#addEvento {
+    visibility: hidden;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addEvento {
+    all: unset;
+    background-color: var(--corFundo2);
+    box-shadow: 0px 3px 3px hsl(131, 3%, 50%);
+    border-radius: 10px;
+    width: 36vmin;
+    height: 15vmin;
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.addEvento:hover {
+    background-color: #209c58;
+    color: var(--corFundo2);
+}
+
+#formEvento {
+    visibility: hidden;
+    background-color: hsl(131, 10%, 90%);
+    box-shadow: 0px 3px 3px hsl(131, 3%, 50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 56vmin;
+    width: 40vmin;
+    position:fixed;
+    top: calc(50% - 28vmin);
+    right: calc(50% - 20vmin);
+}
+
+.separador {
+    margin: 0.5rem;
+}
+
+#horario {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonEvento {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+#background {
+    display: none;
+    background-color: hsla(0, 0%, 90%, 0.8);
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+}
+
+footer {
+    padding-bottom: 2rem;
 }
