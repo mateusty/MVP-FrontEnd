@@ -213,11 +213,6 @@ body {
     color: var(--corFundo2);
 }
 
-footer {
-    background-color: var(--accentColor);
-    color: var(--textColor);
-}
-
 .botao_home {
     position: fixed;
     display: flex;
@@ -429,20 +424,5 @@ footer {
     transform: scale(1.1);
 }
 
-.cabecalho_rodape_cores{
-    background-color: hsla(120, 30%, 20%); 
-    color:  hsl(30, 20%, 85%); 
-}
-
-.rodape{
-    height: 8em;
-    width: 20rem;
-    color: var(--textColor);
-}
-
-.rodape h2{
-    text-align: center;
-  
-}
 
 

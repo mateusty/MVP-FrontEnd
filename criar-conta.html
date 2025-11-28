@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="js/criar-conta.js" defer></script>
+    <title>Criar conta</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+        <img class="logo" src="img/logo.png" alt="Logo Terê Verde" height="100px" width="100px">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="parnaso.html">Serra dos órgãos</a></li>
+                <li><a href="trespicos.html">Três Picos</a></li>
+                <li><a href="montanhasTere.html">Montanhas de Teresópolis</a></li>
+                <li><a href="login.html"><img src="img/loginIcon.png" alt="Login" height="30px" width="30px" id="login"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <label>Nome completo</label>
+    <input type="text" name="nome">
+    <label>Data de nascimento</label>
+    <input type="date" name="data" placeholder="dd/mm/aaaa">
+    <label>E-mail</label>
+    <input type="email" name="emial" placeholder="exemplo@gmail.com">
+    <label>Senha</label>
+    <input type="password" name="senha">
+    <label>Número</label>
+    <input type="text" name="numero" placeholder="(ddd)*********">
+    <label>Cidade</label>
+    <input type="text" name="cidade">
+    <label class="guia">Você é um guia?
+    <input id="alterar" type="checkbox" onchange="visibilidadeCheckbox()"  aria-controls="menuPrincipal"aria-expanded="false">
+    </label>
+    <div id="menuPrincipal" hidden>
+    <label>Informe o número do Cadastur</label> <br>
+    <input type="text" name="cadastur" placeholder="00.000000.00/0000-0">
+    </div>
+    <button class="cadastrar" type="submit" onclick="event.preventDefault();window.location.href='login.html'">Cadastrar</button>
+    </main>
+</body>
+</html>

@@ -14,3 +14,8 @@
 .paragrafo-footer a:hover{
     color: var(--corFundo);
 }
+
+footer {
+    background-color: var(--accentColor);
+    color: var(--textColor);
+}

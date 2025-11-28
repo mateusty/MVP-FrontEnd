@@ -61,3 +61,7 @@ header {
 .botao_home:hover {
     background-color: var(--corFundo);
 }
+
+#login {
+    transform: translateY(3px);
+}

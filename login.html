@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/header.css">
+    </head>
+    <body>
+    <header>
+        <a href="index.html">
+        <img class="logo" src="img/logo.png" alt="Logo Terê Verde" height="100px" width="100px">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="parnaso.html">Serra dos órgãos</a></li>
+                <li><a href="trespicos.html">Três Picos</a></li>
+                <li><a href="montanhasTere.html">Montanhas de Teresópolis</a></li>
+                <li><a href="login.html"><img src="img/loginIcon.png" alt="Login" height="30px" width="30px" id="login"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form id="formLogin" action="eventos.html">
+            <div class="titulo">
+                <h1>Faça o seu login</h1>
+            </div>
+
+            <div class="campo-input">
+                <label for="email">E-mail</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="campo-input">
+                <label for="password">Senha</label>
+                <input type="password" id="password">
+            </div>
+
+            <div class="lembrar-me">
+                <p>Lembrar-me <input id="checkbox" type="checkbox"></p>
+                
+            </div>
+
+            <button class="entrar">Entrar</button>
+            <p>
+                <a href="criar-conta.html"><small>Criar nova conta</small></a>
+            </p>
+            <p>
+                <a href="recuperacao.html"><small>Esqueceu sua senha?</small></a>
+            </p>
+        </form>
+        </div>
+    </main>
+    <script src="js/login.js"></script>
+    </body>
+</html>
