@@ -16,6 +16,11 @@ body {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 #imgTopo {
     display: flex;
     justify-self: center;
@@ -241,9 +246,6 @@ body {
     padding: 10px;
 }
 
-.geral{
-    scroll-behavior: smooth;
-}
 
 .principal{
     background-color: var(--corFundo);
