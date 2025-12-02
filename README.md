@@ -27,7 +27,8 @@
 
 ### Requisitos: [Requisititos](https://onedrive.live.com/personal/26b1a2b51b5e90f5/_layouts/15/Doc.aspx).
 
-### Slides de Apresentação: [Slide](canva.com/design/DAG52d2oOjA/pToKkpAuTZcN2yk9x7wdAw/edit?utm_content=DAG52d2oOjA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
+### Slides de Apresentação: [Slide](slides/Slide_MVP.pdf).
+
 
 
 
