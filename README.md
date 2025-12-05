@@ -46,4 +46,14 @@
 
 ## Possíveis melhorias:
 
+
 - Integração do software com um Banco de Dados para o armazenamento de informações dos administradores e eventos dos parques;
+
+## Instalação:
+
+1. Clone o repositório
+```bash
+git clone https://github.com/mateusty/MVP-FrontEnd.git
+```
+
+2. Abra o arquivo index.html
