@@ -23,7 +23,7 @@ main {
     flex-direction: column;
     align-self: center;
     justify-content: center;
-    margin-top: 10rem;
+    margin-top: 5%;
 }
 
 input {
