@@ -39,7 +39,7 @@
 ![Prototipagem 3](/img/Prototipo/Prototipo3.png)
 
 ## Requisitos:
-### [Requisititos](/slides/PlanilhaRequisitos.pdf).
+### [Requisitos](/slides/PlanilhaRequisitos.pdf).
 
 ## Slides de Apresentação:
 ### [Slide](/slides/SlideMVP.pdf).
@@ -57,3 +57,4 @@ git clone https://github.com/mateusty/MVP-FrontEnd.git
 ```
 
 2. Abra o arquivo index.html
+
