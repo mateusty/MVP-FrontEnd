@@ -24,6 +24,7 @@ body {
 }
 
 .container {
+    height: 60vh;
     justify-self: center;
     display: flex;
     flex-flow: row wrap;
