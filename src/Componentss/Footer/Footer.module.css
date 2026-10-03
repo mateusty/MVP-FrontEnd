@@ -1,0 +1,12 @@
+.paragrafoFooter {
+    font-size: 1.2rem;
+    margin-bottom: -1em;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+footer {
+    background-color: var(--accentColor);
+    color: var(--textColor);
+}

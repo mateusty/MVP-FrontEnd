@@ -1,0 +1,62 @@
+.logo {
+    display: inline-block;
+}
+
+nav {
+    position: relative;
+    display: inline-block;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    gap: 4vmin;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 4vmin;
+}
+
+ul button {
+    all: unset;
+    font-size: 2vmin;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--textColor);
+    cursor: pointer;
+    transition: color 500ms ease;
+}
+
+ul button:hover{
+    color: hsl(30, 20%, 100%);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    bottom: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--accentColor);
+    z-index: 2;
+}
+
+.botaoHome {
+    position: fixed;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    right: 2%;
+    bottom: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.botaoHome:hover {
+    background-color: var(--corFundo);
+}
+
+#login {
+    transform: translateY(3px);
+}
