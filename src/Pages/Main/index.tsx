@@ -2,14 +2,12 @@
 import tresPicos from '../../assets/trespicos.jpg'
 import parnaso from '../../assets/parquenacional.jpg'
 import montanhasTere from '../../assets/montanhastere.jpg'
-import { Header } from '../../Componentss/Header'
 import styles from './Main.module.css'
 
 export const Main = () => {
   return (
     <>
     <main className={styles.main}>
-    <Header/>
         <section id="parnaso" className={styles.local}>
             <div className={styles.container}>
                 <figure>
