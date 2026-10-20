@@ -1,0 +1,62 @@
+.body {
+    background-image: linear-gradient(hsla(131, 10%, 10%, 35%), hsla(131, 10%, 10%, 35%)), url("../../assets/montanhastere.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--corFundo);
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.main {
+    width: min(100%, 28rem);
+    color: hsl(131, 10%, 10%);
+    background-color: hsla(131, 10%, 90%, 67%);
+    border-radius: 10px;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px hsla(131, 10%, 10%, 30%);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 1rem 0;
+}
+
+.cadastrar {
+    display: block;
+    margin: 1.5rem auto 0;
+    padding: 0.7rem 2rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--accentColor);
+    color: var(--textColor);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cadastrar:hover {
+    background-color: hsl(120, 30%, 28%);
+}
+
+.input input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.65rem;
+    border: 1px solid #777;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.status {
+    min-height: 1.5em;
+    margin-bottom: 0;
+    text-align: center;
+}
