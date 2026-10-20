@@ -4,6 +4,7 @@ import { Parnaso } from "../Pages/Parques/Parnaso"
 import { TresPicos } from "../Pages/Parques/TresPicos"
 import { MontanhasTere } from "../Pages/Parques/MontanhasTere"
 import { Layout } from "../Componentss/Layout"
+import { Login } from "../Pages/Login"
 
 export const Router = () => {
   return (
@@ -24,6 +25,10 @@ export const Router = () => {
           <Route
           path="/montanhas-tere"
           element={<MontanhasTere />}
+          />
+          <Route
+          path="/login"
+          element={<Login />}
           />
         </Route>
     </Routes>

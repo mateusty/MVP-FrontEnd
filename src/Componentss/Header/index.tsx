@@ -23,8 +23,9 @@ export const Header = () => {
                         height="30px"
                         width="30px"
                         id="login"
+                        onClick={() => navigate("/login")}
                     >
-                    </img> {/* Adicionar link para a página de login */}
+                    </img>
                     </li>
             </ul>
         </nav>
