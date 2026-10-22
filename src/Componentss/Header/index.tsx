@@ -8,11 +8,21 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-            <img className={styles.logo} src={logo} alt="Logo Terê Verde" height="100px" width="100px"></img> {/* Adicionar link para a página inicial */}
+        {/* Redireciona para a página inicial ao clicar na logo */}
+        <img 
+            className={styles.logo} 
+            src={logo} 
+            alt="Logo Terê Verde" 
+            height="100px" 
+            width="100px"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/")}
+        />
         <nav>
             <ul>
-                <li><button>Eventos</button></li>
-                <li><button onClick={() => navigate("/parnaso")}>Serra dos órgãos</button></li>
+                {/* Adicionado o onClick com o caminho /eventos */}
+                <li><button onClick={() => navigate("/eventos")}>Eventos</button></li>
+                <li><button onClick={() => navigate("/parnaso")}>Serra dos Órgãos</button></li>
                 <li><button onClick={() => navigate("/tres-picos")}>Três Picos</button></li>
                 <li><button onClick={() => navigate("/montanhas-tere")}>Montanhas de Teresópolis</button></li>
                 <li>
@@ -24,9 +34,8 @@ export const Header = () => {
                         width="30px"
                         id="login"
                         onClick={() => navigate("/login")}
-                    >
-                    </img>
-                    </li>
+                    />
+                </li>
             </ul>
         </nav>
     </header>

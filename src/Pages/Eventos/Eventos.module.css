@@ -1,0 +1,180 @@
+.principal {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.banner {
+  width: 100%;
+  height: 200px;
+  background-color: #1f3a25; /* Verde idêntico ao do Header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sobre h2 {
+  color: #1f3a25;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0;
+}
+
+.banner .sobre h2 {
+  color: #ffffff;
+}
+
+.caixa {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trilhas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cabeçalho Centralizado com melhor contraste */
+.headerSecao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2.5em;
+  border-bottom: 2px solid #dcdcdc;
+  padding-bottom: 20px;
+  gap: 16px;
+}
+
+.tituloGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.tituloGroup h2 {
+  color: #1f3a25; /* Mesma cor base */
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtituloSecao {
+  color: #4a4a4a; /* Escurecido para legibilidade */
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Botão de Criar Evento */
+.btnCriar {
+  background-color: #1f3a25;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnCriar:hover {
+  background-color: #2c5335;
+  transform: translateY(-1px);
+}
+
+/* Formulário do Gestor */
+.formulario {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.formulario h3 {
+  color: #1f3a25;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.btnSubmit {
+  background-color: #1f3a25;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnSubmit:hover {
+  background-color: #2c5335;
+}
+
+/* Listagem de Cards */
+.menu_trilhas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.menu_cards {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.texto_trilhas h3 {
+  color: #1f3a25;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.texto_trilhas p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.btnPresenca {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #1f3a25;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btnPresenca:hover {
+  background-color: #2c5335;
+}
