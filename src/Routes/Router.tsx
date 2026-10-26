@@ -5,7 +5,8 @@ import { TresPicos } from "../Pages/Parques/TresPicos"
 import { MontanhasTere } from "../Pages/Parques/MontanhasTere"
 import { Layout } from "../Componentss/Layout"
 import { Login } from "../Pages/Login"
-import { Eventos } from "../Pages/Eventos" // 1. Import do novo componente
+import { Eventos } from "../Pages/Eventos" 
+import { AdminTrilhas } from "../Pages/Admin/AdminTrilhas";
 
 export const Router = () => {
   return (
@@ -34,6 +35,10 @@ export const Router = () => {
           <Route
             path="/login"
             element={<Login />}
+          />
+          <Route
+            path="/admin/trilhas"
+            element={<AdminTrilhas />}
           />
         </Route>
     </Routes>
