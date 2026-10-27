@@ -178,3 +178,13 @@
 .btnPresenca:hover {
   background-color: #2c5335;
 }
+
+.formulario input[type="datetime-local"],
+.formulario input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
