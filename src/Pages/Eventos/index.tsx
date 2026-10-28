@@ -19,11 +19,11 @@ interface Evento {
 }
 
 export const Eventos = () => {
-  // Estado inicial vazio para buscar diretamente do Back-end
+  
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [mostrarForm, setMostrarForm] = useState<boolean>(false);
 
-  // Estados dos campos do formulário de criação de evento
+ 
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [local, setLocal] = useState("");
@@ -32,20 +32,20 @@ export const Eventos = () => {
   const [limitePessoas, setLimitePessoas] = useState<number | "">("");
   const [googleMapsUrl, setGoogleMapsUrl] = useState("");
 
-  // Estados para controlar o RSVP (marcar presença) em cada card
+  
   const [eventoAtivoPresenca, setEventoAtivoPresenca] = useState<string | null>(null);
   const [nomeParticipante, setNomeParticipante] = useState("");
   const [emailParticipante, setEmailParticipante] = useState("");
 
-  // Obter permissão e token do usuário logado
+  
   const token = localStorage.getItem("token");
-  const userRole = localStorage.getItem("userRole"); // Ex: 'admin' ou 'gestor'
+  const userRole = localStorage.getItem("userRole"); 
   const isGestor = userRole === "admin" || userRole === "gestor";
 
-  // URL base da sua API Back-End
+
   const API_URL = "http://localhost:3000/eventos";
 
-  // 1. Buscar lista de eventos do Back-end (GET /)
+  
   const carregarEventos = async () => {
     try {
       const response = await fetch(API_URL);
@@ -67,7 +67,7 @@ export const Eventos = () => {
     carregarEventos();
   }, []);
 
-  // 2. Enviar novo evento com token e validações para o Back-end (POST /)
+  
   const handleCriarEvento = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -106,7 +106,7 @@ export const Eventos = () => {
         setLimitePessoas("");
         setGoogleMapsUrl("");
         setMostrarForm(false);
-        carregarEventos(); // Recarrega a lista do banco
+        carregarEventos(); 
       } else {
         const errData = await response.json();
         alert(errData.mensagem || errData.error || "Erro ao criar evento.");
@@ -117,7 +117,7 @@ export const Eventos = () => {
     }
   };
 
-  // 3. Confirmar presença do participante num evento
+ 
   const handleConfirmarPresenca = (e: React.FormEvent, eventoId?: string) => {
     e.preventDefault();
 
@@ -180,7 +180,7 @@ export const Eventos = () => {
             )}
           </div>
 
-          {/* FORMULÁRIO DO GESTOR */}
+          
           {isGestor && mostrarForm && (
             <form className={styles.formulario} onSubmit={handleCriarEvento}>
               <h3>Cadastrar Novo Evento</h3>
@@ -245,7 +245,7 @@ export const Eventos = () => {
             </form>
           )}
 
-          {/* LISTAGEM DOS CARDS */}
+   
           <div className={styles.menu_trilhas}>
             {eventos.map((evento, index) => {
               const eventoId = evento.id || String(index);
@@ -261,7 +261,7 @@ export const Eventos = () => {
                     <p><strong>Tema:</strong> {evento.tema}</p>
                     <p>{evento.descricao}</p>
                     
-                    {/* Contador de Vagas Dinâmico */}
+                    
                     <p>
                       <small>
                         Vagas preenchidas: <strong>{totalParticipantes}</strong> / {evento.limite_pessoas} 
@@ -269,7 +269,7 @@ export const Eventos = () => {
                       </small>
                     </p>
 
-                    {/* Renderização condicional do link do Google Maps */}
+                   
                     {evento.google_maps_url && (
                       <p>
                         <a 
@@ -283,7 +283,7 @@ export const Eventos = () => {
                       </p>
                     )}
 
-                    {/* RSVP: Mini formulário ou Botão Marcar Presença */}
+                   
                     {isFormularioAberto ? (
                       <form onSubmit={(e) => handleConfirmarPresenca(e, eventoId)} style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "8px" }}>
                         <input
