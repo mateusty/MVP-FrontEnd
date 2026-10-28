@@ -1,0 +1,251 @@
+
+.painel {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 24px;
+  color: #24352a;
+}
+
+.cabecalho {
+  margin-bottom: 32px;
+}
+
+.cabecalho h1 {
+  font-size: 32px;
+  color: #285c3b;
+  margin-bottom: 8px;
+}
+
+.cabecalho p {
+  color: #66766c;
+  font-size: 15px;
+}
+
+.cardFormulario {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid #e1e9e3;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 40px;
+}
+
+.cardFormulario h2 {
+  color: #285c3b;
+  font-size: 23px;
+  margin-bottom: 25px;
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd8ce;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #24352a;
+  font: inherit;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid #75af84;
+  outline-offset: 1px;
+}
+
+.campoGrande {
+  grid-column: 1 / -1;
+}
+
+.acoes {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.botaoPrincipal {
+  background: #286c42;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.botaoPrincipal:hover {
+  background: #1d5231;
+}
+
+.botaoPrincipal:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botaoSecundario {
+  background: #edf2ee;
+  color: #285c3b;
+  border: 1px solid #cbd8ce;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.botaoSecundario:hover {
+  background: #dce8df;
+}
+
+.mensagem {
+  margin-top: 18px;
+  padding: 12px;
+  background: #e5f4e9;
+  color: #226238;
+  border-radius: 8px;
+}
+
+.erro {
+  margin-top: 18px;
+  padding: 12px;
+  background: #fff0f0;
+  color: #a32727;
+  border-radius: 8px;
+}
+
+.tituloLista {
+  font-size: 25px;
+  color: #285c3b;
+  margin-bottom: 22px;
+}
+
+.listaTrilhas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.cardTrilha {
+  background: white;
+  border: 1px solid #e1e9e3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.imagemTrilha {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.semImagem {
+  height: 210px;
+  background: #eaf0eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #718578;
+}
+
+.conteudoTrilha {
+  padding: 22px;
+}
+
+.conteudoTrilha h3 {
+  font-size: 20px;
+  color: #285c3b;
+  margin: 0 0 12px;
+}
+
+.conteudoTrilha p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 6px 0;
+  overflow-wrap: anywhere;
+}
+
+.botoesTrilha {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.botaoEditar {
+  flex: 1;
+  background: #e5f1e8;
+  color: #24613a;
+  border: none;
+  padding: 11px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.botaoEditar:hover {
+  background: #cfe4d4;
+}
+
+.botaoExcluir {
+  flex: 1;
+  background: #fbe9e9;
+  color: #a32727;
+  border: none;
+  padding: 11px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.botaoExcluir:hover {
+  background: #f4d0d0;
+}
+
+@media (max-width: 750px) {
+  .painel {
+    padding: 20px 15px;
+  }
+
+  .formulario,
+  .listaTrilhas {
+    grid-template-columns: 1fr;
+  }
+
+  .cardFormulario {
+    padding: 20px;
+  }
+
+  .campoGrande,
+  .acoes {
+    grid-column: 1;
+  }
+
+  .cabecalho h1 {
+    font-size: 26px;
+  }
+}

@@ -10,12 +10,13 @@ import trilhaSuspensa from "../../assets/trilha_suspensa.jpg";
 type Trilha = {
   id: string;
   nome: string;
-  descricao: string;
+  descricao: string | null;
   dificuldade: string;
   distancia_km: string | number;
   duracao_minutos: number;
   localizacao: string;
   imagem_url: string | null;
+  parque: string | null;
 };
 
 export const Parnaso = () => {
@@ -34,7 +35,6 @@ export const Parnaso = () => {
 
         if (ativo) {
           setTrilhas(dados);
-          console.log("Trilhas recebidas:", dados);
         }
 
       } catch (erro) {
@@ -59,10 +59,8 @@ export const Parnaso = () => {
 
   }, []);
 
-  // Filtro temporário até existir identificação do parque no banco.
   const trilhasParnaso = trilhas.filter(
-    (trilha) =>
-      trilha.nome.trim().toLowerCase() === "pedra do sino"
+    (trilha) => trilha.parque === "parnaso"
   );
 
   return (
@@ -98,12 +96,10 @@ export const Parnaso = () => {
             <h2>Nossas trilhas</h2>
           </div>
 
-          {/* TRILHAS ORIGINAIS */}
-
           <div className={styles.trilha}>
             <div className={styles.textoTrilha}>
               <h3 className={styles.titulo}>
-                Mirante Cartāo Postal
+                Mirante Cartão Postal
               </h3>
 
               <p>
@@ -160,7 +156,13 @@ export const Parnaso = () => {
             />
           </div>
 
-          {/* TRILHAS RECEBIDAS DO POSTGRESQL */}
+        </section>
+
+        <section>
+
+          <div className={styles.sobre}>
+            <h2>Outras trilhas do parque</h2>
+          </div>
 
           {carregando && (
             <p>Carregando trilhas...</p>
@@ -168,6 +170,10 @@ export const Parnaso = () => {
 
           {erro && (
             <p role="alert">{erro}</p>
+          )}
+
+          {!carregando && !erro && trilhasParnaso.length === 0 && (
+            <p>Nenhuma trilha adicional cadastrada.</p>
           )}
 
           {!carregando && !erro && trilhasParnaso.map((trilha) => (
@@ -202,15 +208,17 @@ export const Parnaso = () => {
               </div>
 
               <div className={styles.imagemTrilhaDinamica}>
-            {trilha.imagem_url ? (
-                <img
-                src={trilha.imagem_url}
-                alt={trilha.nome}
-                />
-            ) : (
-    <span>Imagem não disponível</span>
-  )}
-</div>
+
+                {trilha.imagem_url ? (
+                  <img
+                    src={trilha.imagem_url}
+                    alt={trilha.nome}
+                  />
+                ) : (
+                  <span>Imagem não disponível</span>
+                )}
+
+              </div>
 
             </div>
 

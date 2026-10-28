@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./Eventos.module.css";
 
+interface Participante {
+  nome: string;
+  email: string;
+}
+
 interface Evento {
   id?: string;
   titulo: string;
@@ -9,19 +14,28 @@ interface Evento {
   tema: string;
   data_horario: string;
   limite_pessoas: number;
+  google_maps_url?: string;
+  participantes?: Participante[];
 }
 
 export const Eventos = () => {
+  // Estado inicial vazio para buscar diretamente do Back-end
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [mostrarForm, setMostrarForm] = useState<boolean>(false);
 
-  // Estados dos campos exigidos pelo Back-end
+  // Estados dos campos do formulário de criação de evento
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [local, setLocal] = useState("");
   const [tema, setTema] = useState("");
   const [dataHorario, setDataHorario] = useState("");
   const [limitePessoas, setLimitePessoas] = useState<number | "">("");
+  const [googleMapsUrl, setGoogleMapsUrl] = useState("");
+
+  // Estados para controlar o RSVP (marcar presença) em cada card
+  const [eventoAtivoPresenca, setEventoAtivoPresenca] = useState<string | null>(null);
+  const [nomeParticipante, setNomeParticipante] = useState("");
+  const [emailParticipante, setEmailParticipante] = useState("");
 
   // Obter permissão e token do usuário logado
   const token = localStorage.getItem("token");
@@ -29,7 +43,7 @@ export const Eventos = () => {
   const isGestor = userRole === "admin" || userRole === "gestor";
 
   // URL base da sua API Back-End
-  const API_URL = "http://localhost:3000/eventos"; // Ajuste a porta se necessário
+  const API_URL = "http://localhost:3000/eventos";
 
   // 1. Buscar lista de eventos do Back-end (GET /)
   const carregarEventos = async () => {
@@ -37,7 +51,12 @@ export const Eventos = () => {
       const response = await fetch(API_URL);
       if (response.ok) {
         const data = await response.json();
-        setEventos(data);
+        // Garante que cada evento traga o array de participantes inicializado
+        const eventosComParticipantes = data.map((ev: Evento) => ({
+          ...ev,
+          participantes: ev.participantes || []
+        }));
+        setEventos(eventosComParticipantes);
       }
     } catch (error) {
       console.error("Erro ao carregar eventos do back-end:", error);
@@ -64,6 +83,7 @@ export const Eventos = () => {
       tema,
       data_horario: dataHorario,
       limite_pessoas: Number(limitePessoas),
+      google_maps_url: googleMapsUrl || undefined,
     };
 
     try {
@@ -71,22 +91,22 @@ export const Eventos = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Passa no autenticarToken
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         alert("Evento criado com sucesso!");
-        // Limpar formulário
         setTitulo("");
         setDescricao("");
         setLocal("");
         setTema("");
         setDataHorario("");
         setLimitePessoas("");
+        setGoogleMapsUrl("");
         setMostrarForm(false);
-        carregarEventos(); // Recarrega a lista
+        carregarEventos(); // Recarrega a lista do banco
       } else {
         const errData = await response.json();
         alert(errData.mensagem || errData.error || "Erro ao criar evento.");
@@ -95,6 +115,41 @@ export const Eventos = () => {
       console.error("Erro na comunicação com a API:", error);
       alert("Não foi possível conectar ao servidor.");
     }
+  };
+
+  // 3. Confirmar presença do participante num evento
+  const handleConfirmarPresenca = (e: React.FormEvent, eventoId?: string) => {
+    e.preventDefault();
+
+    if (!nomeParticipante || !emailParticipante) {
+      alert("Por favor, preencha o seu nome e e-mail.");
+      return;
+    }
+
+    setEventos((prevEventos) =>
+      prevEventos.map((ev, idx) => {
+        const idAtual = ev.id || String(idx);
+        if (idAtual === eventoId) {
+          const listaAtual = ev.participantes || [];
+          
+          if (listaAtual.length >= ev.limite_pessoas) {
+            alert("Desculpe, este evento já atingiu o limite máximo de vagas!");
+            return ev;
+          }
+
+          return {
+            ...ev,
+            participantes: [...listaAtual, { nome: nomeParticipante, email: emailParticipante }]
+          };
+        }
+        return ev;
+      })
+    );
+
+    alert(`Presença confirmada com sucesso, ${nomeParticipante}!`);
+    setNomeParticipante("");
+    setEmailParticipante("");
+    setEventoAtivoPresenca(null);
   };
 
   return (
@@ -125,7 +180,7 @@ export const Eventos = () => {
             )}
           </div>
 
-          {/* FORMULÁRIO COM TODOS OS CAMPOS DO MIDDLEWARE DE VALIDAÇÃO */}
+          {/* FORMULÁRIO DO GESTOR */}
           {isGestor && mostrarForm && (
             <form className={styles.formulario} onSubmit={handleCriarEvento}>
               <h3>Cadastrar Novo Evento</h3>
@@ -177,6 +232,13 @@ export const Eventos = () => {
                 required
               />
 
+              <input
+                type="url"
+                placeholder="Link do Google Maps (Opcional)"
+                value={googleMapsUrl}
+                onChange={(e) => setGoogleMapsUrl(e.target.value)}
+              />
+
               <button type="submit" className={styles.btnSubmit}>
                 Salvar Evento
               </button>
@@ -185,23 +247,86 @@ export const Eventos = () => {
 
           {/* LISTAGEM DOS CARDS */}
           <div className={styles.menu_trilhas}>
-            {eventos.map((evento, index) => (
-              <article key={evento.id || index} className={styles.menu_cards}>
-                <div className={styles.texto_trilhas}>
-                  <h3>{evento.titulo}</h3>
-                  <p><strong>Local:</strong> {evento.local}</p>
-                  <p><strong>Tema:</strong> {evento.tema}</p>
-                  <p>{evento.descricao}</p>
-                  <p><small>Vagas: {evento.limite_pessoas}</small></p>
-                  <button
-                    className={styles.btnPresenca}
-                    onClick={() => alert(`Presença solicitada para: ${evento.titulo}`)}
-                  >
-                    Marcar Presença
-                  </button>
-                </div>
-              </article>
-            ))}
+            {eventos.map((evento, index) => {
+              const eventoId = evento.id || String(index);
+              const totalParticipantes = evento.participantes?.length || 0;
+              const vagasRestantes = evento.limite_pessoas - totalParticipantes;
+              const isFormularioAberto = eventoAtivoPresenca === eventoId;
+
+              return (
+                <article key={eventoId} className={styles.menu_cards}>
+                  <div className={styles.texto_trilhas}>
+                    <h3>{evento.titulo}</h3>
+                    <p><strong>Local:</strong> {evento.local}</p>
+                    <p><strong>Tema:</strong> {evento.tema}</p>
+                    <p>{evento.descricao}</p>
+                    
+                    {/* Contador de Vagas Dinâmico */}
+                    <p>
+                      <small>
+                        Vagas preenchidas: <strong>{totalParticipantes}</strong> / {evento.limite_pessoas} 
+                        {vagasRestantes <= 0 ? " (Lotado)" : ` (${vagasRestantes} disponíveis)`}
+                      </small>
+                    </p>
+
+                    {/* Renderização condicional do link do Google Maps */}
+                    {evento.google_maps_url && (
+                      <p>
+                        <a 
+                          href={evento.google_maps_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={styles.linkMapa}
+                        >
+                          📍 Ver localização no Google Maps
+                        </a>
+                      </p>
+                    )}
+
+                    {/* RSVP: Mini formulário ou Botão Marcar Presença */}
+                    {isFormularioAberto ? (
+                      <form onSubmit={(e) => handleConfirmarPresenca(e, eventoId)} style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <input
+                          type="text"
+                          placeholder="Seu Nome"
+                          value={nomeParticipante}
+                          onChange={(e) => setNomeParticipante(e.target.value)}
+                          required
+                          style={{ padding: "8px", borderRadius: "4px", border: "1px solid #ccc", fontSize: "0.9rem" }}
+                        />
+                        <input
+                          type="email"
+                          placeholder="Seu E-mail"
+                          value={emailParticipante}
+                          onChange={(e) => setEmailParticipante(e.target.value)}
+                          required
+                          style={{ padding: "8px", borderRadius: "4px", border: "1px solid #ccc", fontSize: "0.9rem" }}
+                        />
+                        <div style={{ display: "flex", gap: "6px" }}>
+                          <button type="submit" className={styles.btnPresenca} style={{ margin: 0, flex: 1, backgroundColor: "#2e7d32" }}>
+                            Confirmar
+                          </button>
+                          <button 
+                            type="button" 
+                            onClick={() => setEventoAtivoPresenca(null)}
+                            style={{ padding: "8px", background: "#ccc", border: "none", borderRadius: "4px", cursor: "pointer", fontWeight: "bold" }}
+                          >
+                            X
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <button
+                        className={styles.btnPresenca}
+                        onClick={() => setEventoAtivoPresenca(eventoId)}
+                      >
+                        Marcar Presença
+                      </button>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
       </div>

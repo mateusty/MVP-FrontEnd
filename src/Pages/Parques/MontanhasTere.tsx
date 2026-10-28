@@ -11,35 +11,58 @@ import trilhaTangara from "../../assets/trilhaTangara.jpeg";
 type Trilha = {
   id: string;
   nome: string;
-  descricao: string;
+  descricao: string | null;
   dificuldade: string;
-  distancia_km: string;
+  distancia_km: string | number;
   duracao_minutos: number;
   localizacao: string;
+  imagem_url: string | null;
+  parque: string | null;
 };
 
 export const MontanhasTere = () => {
 
   const [trilhas, setTrilhas] = useState<Trilha[]>([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState("");
 
   useEffect(() => {
+
+    let ativo = true;
 
     async function carregarTrilhas() {
       try {
         const dados: Trilha[] = await buscarTrilhas();
 
-        setTrilhas(dados);
+        if (ativo) {
+          setTrilhas(dados);
+        }
 
       } catch (erro) {
         console.error("Erro ao carregar trilhas:", erro);
+
+        if (ativo) {
+          setErro("Não foi possível carregar as trilhas.");
+        }
+
+      } finally {
+        if (ativo) {
+          setCarregando(false);
+        }
       }
     }
 
     carregarTrilhas();
 
+    return () => {
+      ativo = false;
+    };
+
   }, []);
 
-  console.log("Trilhas armazenadas no React:", trilhas);
+  const trilhasMontanhas = trilhas.filter(
+    (trilha) => trilha.parque === "montanhas-tere"
+  );
 
   return (
     <>
@@ -132,6 +155,71 @@ export const MontanhasTere = () => {
               height="350"
             />
           </div>
+        </section>
+
+        <section>
+          <div className={styles.sobre}>
+            <h2>Outras trilhas do parque</h2>
+          </div>
+
+          {carregando && (
+            <p>Carregando trilhas...</p>
+          )}
+
+          {erro && (
+            <p role="alert">{erro}</p>
+          )}
+
+          {!carregando && !erro && trilhasMontanhas.length === 0 && (
+            <p>Nenhuma trilha adicional cadastrada.</p>
+          )}
+
+          {!carregando && !erro && trilhasMontanhas.map((trilha) => (
+
+            <div
+              className={`${styles.trilha} ${styles.trilhaDinamica}`}
+              key={trilha.id}
+            >
+
+              <div className={styles.informacoesTrilha}>
+
+                <h3>{trilha.nome}</h3>
+
+                <p>{trilha.descricao}</p>
+
+                <p>
+                  <strong>Dificuldade:</strong> {trilha.dificuldade}
+                </p>
+
+                <p>
+                  <strong>Distância:</strong> {trilha.distancia_km} km
+                </p>
+
+                <p>
+                  <strong>Duração:</strong> {trilha.duracao_minutos} minutos
+                </p>
+
+                <p>
+                  <strong>Localização:</strong> {trilha.localizacao}
+                </p>
+
+              </div>
+
+              <div className={styles.imagemTrilhaDinamica}>
+                {trilha.imagem_url ? (
+                  <img
+                    src={trilha.imagem_url}
+                    alt={trilha.nome}
+                  />
+                ) : (
+                  <span>Imagem não disponível</span>
+                )}
+              </div>
+
+            </div>
+
+          ))}
+
         </section>
 
         <section id={styles.objective}>
