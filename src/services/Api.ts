@@ -64,7 +64,7 @@ export async function buscarEventos() {
 }
 
 export async function marcarPresenca(eventId: string, nome: string, email: string) {
-  const resposta = await fetch(`${API_URL}/eventos/${eventId}/presenca`, {
+  const resposta = await fetch(`${API_URL}/presencas/${eventId}/presenca`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -82,7 +82,7 @@ export async function marcarPresenca(eventId: string, nome: string, email: strin
 }
 
 export async function desmarcarPresenca(eventId: string, email: string) {
-  const resposta = await fetch(`${API_URL}/eventos/${eventId}/presenca`, {
+  const resposta = await fetch(`${API_URL}/presencas/${eventId}/presenca`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"

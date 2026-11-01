@@ -37,7 +37,8 @@ export const Eventos = () => {
 
   const [isGestor, setIsGestor] = useState<boolean>(false);
 
-  const API_URL = "http://localhost:3000/eventos";
+  // URLs separadas por entidade/prefixo correto do backend
+  const API_EVENTOS = "http://localhost:3000/eventos";
 
   const verificarAutenticacao = () => {
     const token = sessionStorage.getItem("token") || localStorage.getItem("token");
@@ -100,7 +101,7 @@ export const Eventos = () => {
 
     if (window.confirm("Tem certeza que deseja excluir este evento?")) {
       try {
-        const response = await fetch(`${API_URL}/${eventoId}`, {
+        const response = await fetch(`${API_EVENTOS}/${eventoId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -141,7 +142,7 @@ export const Eventos = () => {
     };
 
     const isEdit = !!eventoEmEdicao;
-    const url = isEdit ? `${API_URL}/${eventoEmEdicao.id}` : API_URL;
+    const url = isEdit ? `${API_EVENTOS}/${eventoEmEdicao.id}` : API_EVENTOS;
     const method = isEdit ? "PUT" : "POST";
 
     try {
