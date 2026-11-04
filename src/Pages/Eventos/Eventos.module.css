@@ -6,7 +6,7 @@
 .banner {
   width: 100%;
   height: 200px;
-  background-color: #1f3a25; /* Verde idêntico ao do Header */
+  background-color: #1f3a25;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,6 @@
   align-items: center;
 }
 
-/* Cabeçalho Centralizado com melhor contraste */
 .headerSecao {
   display: flex;
   flex-direction: column;
@@ -56,19 +55,18 @@
 }
 
 .tituloGroup h2 {
-  color: #1f3a25; /* Mesma cor base */
+  color: #1f3a25;
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
 }
 
 .subtituloSecao {
-  color: #4a4a4a; /* Escurecido para legibilidade */
+  color: #4a4a4a;
   font-size: 1rem;
   margin: 0;
 }
 
-/* Botão de Criar Evento */
 .btnCriar {
   background-color: #1f3a25;
   color: #ffffff;
@@ -86,7 +84,6 @@
   transform: translateY(-1px);
 }
 
-/* Formulário do Gestor */
 .formulario {
   background: #ffffff;
   padding: 20px;
@@ -116,7 +113,6 @@
   font-size: 0.95rem;
 }
 
-/* Garantia de alinhamento visual para datetime, number e url (Google Maps) */
 .formulario input[type="datetime-local"],
 .formulario input[type="number"],
 .formulario input[type="url"] {
@@ -141,13 +137,13 @@
   background-color: #2c5335;
 }
 
-/* Listagem de Cards */
 .menu_trilhas {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+  align-items: flex-start;
 }
 
 .menu_cards {
@@ -155,26 +151,110 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: max-content;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.texto_trilhas {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  overflow: visible;
+}
+
+.cardHeaderTop {
+  display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 8px;
+  width: 100%;
 }
 
-.texto_trilhas h3 {
+.cardHeaderTop h3 {
   color: #1f3a25;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
+  padding-right: 65px;
+  word-break: break-word;
 }
 
-.texto_trilhas p {
+.cardAcoesGestor {
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.btnEditar {
+  background: #d4a373;
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.btnExcluir {
+  background: #c62828;
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.cardInfoItem {
+  margin: 4px 0;
   color: #444;
   font-size: 0.95rem;
   line-height: 1.4;
-  margin: 8px 0;
+  word-break: break-word;
 }
 
-/* Estilo padronizado para o link do Google Maps nos cards */
+.cardDescricaoContainer {
+  width: 100%;
+  margin: 10px 0;
+  height: max-content;
+  overflow: visible;
+}
+
+.cardDescricaoTexto {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  display: block;
+  height: max-content;
+  overflow: visible;
+}
+
+.cardVagas {
+  margin-top: 12px;
+  padding-top: 8px;
+  color: #444;
+}
+
 .linkMapa {
   color: #1f3a25;
   font-weight: 600;
@@ -183,6 +263,7 @@
   margin: 6px 0 12px 0;
   font-size: 0.9rem;
   transition: color 0.2s;
+  word-break: break-all;
 }
 
 .linkMapa:hover {
@@ -190,19 +271,90 @@
   text-decoration: underline;
 }
 
-.btnPresenca {
-  margin-top: 15px;
-  width: 100%;
-  background-color: #1f3a25;
+.formAcaoCard {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputAcaoCard {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.formAcaoBotoes {
+  display: flex;
+  gap: 6px;
+}
+
+.btnPresencaConfirmar {
+  margin: 0;
+  flex: 1;
+  background-color: #2e7d32;
   color: white;
   border: none;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.2s;
 }
 
-.btnPresenca:hover {
-  background-color: #2c5335;
+.btnDesmarcarConfirmar {
+  margin: 0;
+  flex: 1;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnAcaoCancelar {
+  padding: 8px;
+  background: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.containerBotoesAcao {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btnPresencaMarcar {
+  flex: 1;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnPresencaMarcar:hover {
+  background-color: #1b5e20;
+}
+
+.btnPresencaDesmarcar {
+  flex: 1;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnPresencaDesmarcar:hover {
+  background-color: #b71c1c;
 }
