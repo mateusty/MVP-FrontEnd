@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { buscarTrilhas } from "../../services/Api";
+import { buscarTrilhas } from "../../services/trilhasService";
 
 import styles from "./Parques.module.css";
 import montanhasTere from "../../assets/montanhastere.jpg";

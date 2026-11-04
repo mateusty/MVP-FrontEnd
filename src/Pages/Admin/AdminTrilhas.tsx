@@ -6,9 +6,9 @@ import {
   criarTrilha,
   atualizarTrilha,
   excluirTrilha,
-  enviarImagemTrilha,
-  type DadosTrilha
-} from "../../services/Api";
+  enviarImagemTrilha
+} from "../../services/trilhasService";
+import type { DadosTrilha } from "../../services/trilhasService";
 
 import styles from "./AdminTrilhas.module.css";
 

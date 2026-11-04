@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { fazerLogin } from "../../services/Api";
+import { fazerLogin } from "../../services/authService";
 import styles from "./Login.module.css";
 
 export const Login = () => {

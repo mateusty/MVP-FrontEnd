@@ -1,4 +1,11 @@
 import { useEffect, useState } from "react";
+import {
+  atualizarEvento,
+  buscarEventos,
+  criarEvento,
+  excluirEvento
+} from "../../services/eventosService";
+import { removerPresenca } from "../../services/presencasService";
 import styles from "./AdminEventos.module.css";
 
 type Participante = {
@@ -31,15 +38,10 @@ export function AdminEventos() {
   const [googleMapsUrl, setGoogleMapsUrl] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  const token = sessionStorage.getItem("token") || localStorage.getItem("token");
-
   const carregarEventos = async () => {
     try {
-      const response = await fetch("http://localhost:3000/eventos");
-      if (response.ok) {
-        const data = await response.json();
-        setEventos(data);
-      }
+      const data = await buscarEventos();
+      setEventos(data);
     } catch (error) {
       console.error("Erro ao carregar eventos:", error);
     }
@@ -77,21 +79,12 @@ export function AdminEventos() {
     if (!window.confirm("Tem certeza que deseja excluir este evento?")) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/eventos/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      });
-
-      if (response.ok) {
-        alert("Evento excluído com sucesso!");
-        carregarEventos();
-      } else {
-        alert("Erro ao excluir o evento.");
-      }
+      await excluirEvento(id);
+      alert("Evento excluído com sucesso!");
+      carregarEventos();
     } catch (error) {
       console.error("Erro na exclusão:", error);
+      alert(error instanceof Error ? error.message : "Erro ao excluir o evento.");
     }
   };
 
@@ -99,22 +92,12 @@ export function AdminEventos() {
     if (!window.confirm("Deseja realmente remover a presença deste participante?")) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/presencas/admin/${presencaId}`, {
-        method: "DELETE",
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      });
-
-      if (response.ok) {
-        alert("Presença removida com sucesso!");
-        carregarEventos();
-      } else {
-        const data = await response.json();
-        alert(data.mensagem || "Erro ao remover a presença.");
-      }
+      await removerPresenca(presencaId);
+      alert("Presença removida com sucesso!");
+      carregarEventos();
     } catch (error) {
       console.error("Erro ao remover presença:", error);
+      alert(error instanceof Error ? error.message : "Erro ao remover a presença.");
     }
   };
 
@@ -124,42 +107,27 @@ export function AdminEventos() {
 
     const payload = {
       atividade: titulo,
-      descricao: descricao,
+      descricao,
       localizacao: local,
       parque: local,
       capacidade_maxima: Number(limitePessoas),
       data_evento: dataHorario,
-      google_maps_url: googleMapsUrl || "" 
+      google_maps_url: googleMapsUrl || ""
     };
 
-    const url = eventoEmEdicaoId 
-      ? `http://localhost:3000/eventos/${eventoEmEdicaoId}` 
-      : "http://localhost:3000/eventos";
-    
-    const method = eventoEmEdicaoId ? "PUT" : "POST";
-
     try {
-      const response = await fetch(url, {
-        method: method,
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert(eventoEmEdicaoId ? "Evento atualizado com sucesso!" : "Evento criado com sucesso!");
-        cancelarEdicao();
-        carregarEventos();
+      if (eventoEmEdicaoId) {
+        await atualizarEvento(eventoEmEdicaoId, payload);
       } else {
-        setMensagem(data.mensagem || "Erro ao salvar evento.");
+        await criarEvento(payload);
       }
+
+      alert(eventoEmEdicaoId ? "Evento atualizado com sucesso!" : "Evento criado com sucesso!");
+      cancelarEdicao();
+      carregarEventos();
     } catch (error) {
       console.error("Erro na requisição:", error);
-      setMensagem("Erro de conexão com o servidor.");
+      setMensagem(error instanceof Error ? error.message : "Erro de conexão com o servidor.");
     }
   };
 

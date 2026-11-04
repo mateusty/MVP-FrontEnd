@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import styles from "./Eventos.module.css";
-import { buscarEventos, marcarPresenca, desmarcarPresenca } from "../../services/Api";
+import {
+  atualizarEvento,
+  buscarEventos,
+  criarEvento,
+  excluirEvento
+} from "../../services/eventosService";
+import { desmarcarPresenca, marcarPresenca } from "../../services/presencasService";
 
 interface Evento {
   id?: string | number;
@@ -36,9 +42,6 @@ export const Eventos = () => {
   const [emailDesmarcar, setEmailDesmarcar] = useState("");
 
   const [isGestor, setIsGestor] = useState<boolean>(false);
-
-  // URLs separadas por entidade/prefixo correto do backend
-  const API_EVENTOS = "http://localhost:3000/eventos";
 
   const verificarAutenticacao = () => {
     const token = sessionStorage.getItem("token") || localStorage.getItem("token");
@@ -99,26 +102,15 @@ export const Eventos = () => {
       return;
     }
 
-    if (window.confirm("Tem certeza que deseja excluir este evento?")) {
-      try {
-        const response = await fetch(`${API_EVENTOS}/${eventoId}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+    if (!window.confirm("Tem certeza que deseja excluir este evento?")) return;
 
-        if (response.ok) {
-          alert("Evento excluído com sucesso!");
-          carregarEventos();
-        } else {
-          const errData = await response.json();
-          alert(errData.mensagem || "Erro ao excluir evento.");
-        }
-      } catch (error) {
-        console.error("Erro ao excluir evento:", error);
-        alert("Não foi possível conectar ao servidor.");
-      }
+    try {
+      await excluirEvento(eventoId);
+      alert("Evento excluído com sucesso!");
+      carregarEventos();
+    } catch (error) {
+      console.error("Erro ao excluir evento:", error);
+      alert(error instanceof Error ? error.message : "Não foi possível conectar ao servidor.");
     }
   };
 
@@ -133,7 +125,7 @@ export const Eventos = () => {
 
     const payload = {
       atividade: titulo,
-      descricao: descricao,
+      descricao,
       capacidade_maxima: Number(limitePessoas),
       data_evento: dataHorario,
       localizacao: local,
@@ -142,31 +134,25 @@ export const Eventos = () => {
     };
 
     const isEdit = !!eventoEmEdicao;
-    const url = isEdit ? `${API_EVENTOS}/${eventoEmEdicao.id}` : API_EVENTOS;
-    const method = isEdit ? "PUT" : "POST";
 
     try {
-      const response = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(payload),
-      });
+      if (eventoEmEdicao) {
+        if (eventoEmEdicao.id == null) {
+          throw new Error("Não foi possível identificar o evento.");
+        }
 
-      if (response.ok) {
-        alert(isEdit ? "Evento atualizado com sucesso!" : "Evento criado com sucesso!");
-        limparFormulario();
-        setMostrarForm(false);
-        carregarEventos();
+        await atualizarEvento(eventoEmEdicao.id, payload);
       } else {
-        const errData = await response.json();
-        alert(errData.mensagem || "Erro ao salvar evento.");
+        await criarEvento(payload);
       }
+
+      alert(isEdit ? "Evento atualizado com sucesso!" : "Evento criado com sucesso!");
+      limparFormulario();
+      setMostrarForm(false);
+      carregarEventos();
     } catch (error) {
       console.error("Erro na comunicação com a API:", error);
-      alert("Não foi possível conectar ao servidor.");
+      alert(error instanceof Error ? error.message : "Não foi possível conectar ao servidor.");
     }
   };
 
