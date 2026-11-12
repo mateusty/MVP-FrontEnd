@@ -36,11 +36,6 @@ export const Eventos = () => {
   const [limitePessoas, setLimitePessoas] = useState<number | "">("");
   const [googleMapsUrl, setGoogleMapsUrl] = useState("");
 
-  const [modoAcao, setModoAcao] = useState<{ [key: string]: "marcar" | "desmarcar" | null }>({});
-  const [nomeParticipante, setNomeParticipante] = useState("");
-  const [emailParticipante, setEmailParticipante] = useState("");
-  const [emailDesmarcar, setEmailDesmarcar] = useState("");
-
   const [isGestor, setIsGestor] = useState<boolean>(false);
 
   const verificarAutenticacao = () => {
@@ -156,31 +151,24 @@ export const Eventos = () => {
     }
   };
 
-  const handleConfirmarPresenca = async (e: React.FormEvent, eventoId?: string | number) => {
-    e.preventDefault();
-    if (!eventoId) return;
+  const handlePresenca = async (eventId?: string) => {
+    if (!eventId) return;
 
     try {
-      await marcarPresenca(String(eventoId), nomeParticipante, emailParticipante);
+      await marcarPresenca(eventId);
       alert("Presença confirmada com sucesso!");
-      setNomeParticipante("");
-      setEmailParticipante("");
-      setModoAcao({ ...modoAcao, [String(eventoId)]: null });
       carregarEventos();
     } catch (error: any) {
       alert(error.message || "Erro ao marcar presença.");
     }
   };
 
-  const handleConfirmarDesmarcar = async (e: React.FormEvent, eventoId?: string | number) => {
-    e.preventDefault();
-    if (!eventoId) return;
+  const handleDesmarcar = async (eventId?: string) => {
+    if (!eventId) return;
 
     try {
-      await desmarcarPresenca(String(eventoId), emailDesmarcar);
+      await desmarcarPresenca(eventId);
       alert("Presença desmarcada com sucesso!");
-      setEmailDesmarcar("");
-      setModoAcao({ ...modoAcao, [String(eventoId)]: null });
       carregarEventos();
     } catch (error: any) {
       alert(error.message || "Erro ao desmarcar presença.");
@@ -283,7 +271,6 @@ export const Eventos = () => {
               const descricaoEvento = evento.descricao || "";
               const totalParticipantes = evento.participantes?.length || 0;
               const vagasRestantes = limite - totalParticipantes;
-              const acaoAtual = modoAcao[eventoId];
 
               return (
                 <article key={eventoId} className={styles.menu_cards}>
@@ -347,76 +334,20 @@ export const Eventos = () => {
                       </p>
                     )}
 
-                    {acaoAtual === "marcar" ? (
-                      <form onSubmit={(e) => handleConfirmarPresenca(e, evento.id)} className={styles.formAcaoCard}>
-                        <input
-                          type="text"
-                          placeholder="Seu Nome"
-                          value={nomeParticipante}
-                          onChange={(e) => setNomeParticipante(e.target.value)}
-                          required
-                          className={styles.inputAcaoCard}
-                        />
-                        <input
-                          type="email"
-                          placeholder="Seu E-mail"
-                          value={emailParticipante}
-                          onChange={(e) => setEmailParticipante(e.target.value)}
-                          required
-                          className={styles.inputAcaoCard}
-                        />
-                        <div className={styles.formAcaoBotoes}>
-                          <button type="submit" className={styles.btnPresencaConfirmar}>
-                            Confirmar Inscrição
-                          </button>
-                          <button 
-                            type="button" 
-                            onClick={() => setModoAcao({ ...modoAcao, [eventoId]: null })}
-                            className={styles.btnAcaoCancelar}
-                          >
-                            X
-                          </button>
-                        </div>
-                      </form>
-                    ) : acaoAtual === "desmarcar" ? (
-                      <form onSubmit={(e) => handleConfirmarDesmarcar(e, evento.id)} className={styles.formAcaoCard}>
-                        <input
-                          type="email"
-                          placeholder="Digite o e-mail cadastrado"
-                          value={emailDesmarcar}
-                          onChange={(e) => setEmailDesmarcar(e.target.value)}
-                          required
-                          className={styles.inputAcaoCard}
-                        />
-                        <div className={styles.formAcaoBotoes}>
-                          <button type="submit" className={styles.btnDesmarcarConfirmar}>
-                            Confirmar Desmarcação
-                          </button>
-                          <button 
-                            type="button" 
-                            onClick={() => setModoAcao({ ...modoAcao, [eventoId]: null })}
-                            className={styles.btnAcaoCancelar}
-                          >
-                            X
-                          </button>
-                        </div>
-                      </form>
-                    ) : (
                       <div className={styles.containerBotoesAcao}>
                         <button
                           className={styles.btnPresencaMarcar}
-                          onClick={() => setModoAcao({ ...modoAcao, [eventoId]: "marcar" })}
+                          onClick={() => handlePresenca(eventoId)}
                         >
                           Marcar Presença
                         </button>
                         <button
                           className={styles.btnPresencaDesmarcar}
-                          onClick={() => setModoAcao({ ...modoAcao, [eventoId]: "desmarcar" })}
+                          onClick={() => handleDesmarcar(eventoId)}
                         >
                           Desmarcar
                         </button>
                       </div>
-                    )}
                   </div>
                 </article>
               );

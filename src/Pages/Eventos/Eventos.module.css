@@ -1,26 +1,29 @@
 .principal {
   width: 100%;
   min-height: 100vh;
+  background-color: var(--corFundo);
+  color: var(--accentColor);
 }
 
 .banner {
   width: 100%;
   height: 200px;
-  background-color: #1f3a25;
+  margin-bottom: 1.5rem;
+  background-color: var(--bannerColor);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .sobre h2 {
-  color: #1f3a25;
+  color: var(--accentColor);
   font-size: 1.8rem;
   text-align: center;
   margin: 0;
 }
 
 .banner .sobre h2 {
-  color: #ffffff;
+  color: var(--textColor);
 }
 
 .caixa {
@@ -55,21 +58,21 @@
 }
 
 .tituloGroup h2 {
-  color: #1f3a25;
+  color: var(--accentColor);
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
 }
 
 .subtituloSecao {
-  color: #4a4a4a;
+  color: var(--accentColor);
   font-size: 1rem;
   margin: 0;
 }
 
 .btnCriar {
-  background-color: #1f3a25;
-  color: #ffffff;
+  background-color: var(--accentColor);
+  color: var(--textColor);
   border: none;
   padding: 10px 24px;
   border-radius: 20px;
@@ -80,12 +83,12 @@
 }
 
 .btnCriar:hover {
-  background-color: #2c5335;
+  background-color: var(--accentHoverColor);
   transform: translateY(-1px);
 }
 
 .formulario {
-  background: #ffffff;
+  background: var(--corFundo2);
   padding: 20px;
   border-radius: 8px;
   display: flex;
@@ -99,7 +102,7 @@
 }
 
 .formulario h3 {
-  color: #1f3a25;
+  color: var(--accentColor);
   margin: 0 0 10px 0;
   text-align: center;
 }
@@ -124,8 +127,8 @@
 }
 
 .btnSubmit {
-  background-color: #1f3a25;
-  color: white;
+  background-color: var(--accentColor);
+  color: var(--textColor);
   padding: 10px;
   border: none;
   border-radius: 4px;
@@ -134,7 +137,7 @@
 }
 
 .btnSubmit:hover {
-  background-color: #2c5335;
+  background-color: var(--accentHoverColor);
 }
 
 .menu_trilhas {
@@ -147,7 +150,7 @@
 }
 
 .menu_cards {
-  background: #ffffff;
+  background: var(--corFundo2);
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -179,7 +182,7 @@
 }
 
 .cardHeaderTop h3 {
-  color: #1f3a25;
+  color: var(--accentColor);
   margin: 0;
   padding-right: 65px;
   word-break: break-word;
@@ -196,7 +199,7 @@
 .btnEditar {
   background: #d4a373;
   border: none;
-  color: #fff;
+  color: var(--textColor);
   width: 28px;
   height: 28px;
   border-radius: 4px;
@@ -210,7 +213,7 @@
 .btnExcluir {
   background: #c62828;
   border: none;
-  color: #fff;
+  color: var(--textColor);
   width: 28px;
   height: 28px;
   border-radius: 4px;
@@ -256,7 +259,7 @@
 }
 
 .linkMapa {
-  color: #1f3a25;
+  color: var(--accentColor);
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
@@ -267,7 +270,7 @@
 }
 
 .linkMapa:hover {
-  color: #2c5335;
+  color: var(--accentHoverColor);
   text-decoration: underline;
 }
 
@@ -293,8 +296,8 @@
 .btnPresencaConfirmar {
   margin: 0;
   flex: 1;
-  background-color: #2e7d32;
-  color: white;
+  background-color: var(--accentColor);
+  color: var(--textColor);
   border: none;
   padding: 10px;
   border-radius: 4px;
@@ -306,7 +309,7 @@
   margin: 0;
   flex: 1;
   background-color: #c62828;
-  color: white;
+  color: var(--textColor);
   border: none;
   padding: 10px;
   border-radius: 4px;
@@ -331,8 +334,8 @@
 
 .btnPresencaMarcar {
   flex: 1;
-  background-color: #2e7d32;
-  color: white;
+  background-color: var(--accentColor);
+  color: var(--textColor);
   border: none;
   padding: 10px;
   border-radius: 4px;
@@ -341,13 +344,13 @@
 }
 
 .btnPresencaMarcar:hover {
-  background-color: #1b5e20;
+  background-color: var(--accentHoverColor);
 }
 
 .btnPresencaDesmarcar {
   flex: 1;
   background-color: #c62828;
-  color: white;
+  color: var(--textColor);
   border: none;
   padding: 10px;
   border-radius: 4px;

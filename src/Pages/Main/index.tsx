@@ -13,7 +13,7 @@ export const Main = () => {
     <main className={styles.main}>
         <section id="parnaso" className={styles.local}>
             <div className={styles.container}>
-                <figure>
+                <figure className={styles.figure}>
                     <figcaption>Parque Nacional Serra dos Órgãos</figcaption>
                     <img src={parnaso} alt="Panorama Parque Nacional Serra dos Órgãos" height="400px" width="600px"></img>
                 </figure>
@@ -28,7 +28,7 @@ export const Main = () => {
 
         <section id="tresPicos" className={styles.local}>
             <div className={styles.container + ' ' + styles.reverse}>
-                <figure>
+                <figure className={styles.figure}>
                     <figcaption>Parque Estadual dos Três Picos</figcaption>
                     <img src={tresPicos} alt="Panorama Parque Estadual dos Três Picos" height="400px" width="600px"></img>
                 </figure>
@@ -43,7 +43,7 @@ export const Main = () => {
 
         <section id="montanhasTere" className={styles.local}>
             <div className={styles.container}>
-                <figure>
+                <figure className={styles.figure}>
                     <figcaption>Montanhas de Teresópolis</figcaption>
                     <img src={montanhasTere} alt="Panorama Montanhas de Teresópolis" height="400px" width="600px"></img>
                 </figure>

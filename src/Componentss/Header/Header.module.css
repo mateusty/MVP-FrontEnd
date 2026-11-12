@@ -2,12 +2,12 @@
     display: inline-block;
 }
 
-nav {
+.navegacao {
     position: relative;
     display: inline-block;
 }
 
-ul {
+.listaNavegacao {
     width: 100%;
     display: flex;
     gap: 4vmin;
@@ -16,7 +16,7 @@ ul {
     margin-right: 4vmin;
 }
 
-ul button {
+.botaoNavegacao {
     all: unset;
     font-size: 2vmin;
     font-weight: bold;
@@ -26,11 +26,12 @@ ul button {
     transition: color 500ms ease;
 }
 
-ul button:hover{
-    color: hsl(30, 20%, 100%);
+.botaoNavegacao:hover {
+    color: var(--corFundo2);
 }
 
-header {
+.header {
+    border-bottom: var(--corFundo) 1px solid;
     position: sticky;
     top: 0;
     bottom: 100%;
@@ -48,7 +49,7 @@ header {
     width: 3rem;
     right: 2%;
     bottom: 5%;
-    border: 2px solid black;
+    border: 2px solid var(--accentColor);
     border-radius: 10px;
     z-index: 1;
 }
@@ -57,6 +58,6 @@ header {
     background-color: var(--corFundo);
 }
 
-#login {
+.loginIcon {
     transform: translateY(3px);
 }

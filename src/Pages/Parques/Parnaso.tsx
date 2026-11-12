@@ -6,6 +6,7 @@ import styles from "./Parques.module.css";
 import cartaoPostal from "../../assets/cartão_postal.jpg";
 import miranteMozart from "../../assets/mirante-da-trilha-mozart.jpg";
 import trilhaSuspensa from "../../assets/trilha_suspensa.jpg";
+import { Footer } from "../../Componentss/Footer";
 
 type Trilha = {
   id: string;
@@ -158,7 +159,7 @@ export const Parnaso = () => {
 
         </section>
 
-        <section>
+        <section className={`${styles.trilhas} ${styles.caixa}`}>
 
           <div className={styles.sobre}>
             <h2>Outras trilhas do parque</h2>
@@ -282,6 +283,7 @@ export const Parnaso = () => {
         </section>
 
       </main>
+      <Footer Info="☎ : (61)2028-9913&ensp; | &#9993; parnaso@icmbio.gov.br"/>
     </>
   );
 };

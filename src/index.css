@@ -2,5 +2,29 @@
     --corFundo: hsl(131, 10%, 85%);
     --corFundo2: hsl(131, 10%, 90%);
     --accentColor: hsla(120, 30%, 20%);
+    --bannerColor: rgb(44, 82, 44);
+    --accentHoverColor: hsl(120, 30%, 28%);
     --textColor: hsl(30, 20%, 85%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: var(--corFundo);
+    color: var(--accentColor);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    background-color: var(--corFundo);
 }

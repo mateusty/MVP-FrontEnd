@@ -15,7 +15,7 @@
 
 .main {
     width: min(100%, 28rem);
-    color: hsl(131, 10%, 10%);
+    color: var(--accentColor);
     background-color: hsla(131, 10%, 90%, 67%);
     border-radius: 10px;
     padding: clamp(1.5rem, 5vw, 3rem);
@@ -43,7 +43,7 @@
 }
 
 .cadastrar:hover {
-    background-color: hsl(120, 30%, 28%);
+    background-color: var(--accentHoverColor);
 }
 
 .input input {
@@ -59,4 +59,27 @@
     min-height: 1.5em;
     margin-bottom: 0;
     text-align: center;
+}
+
+.erro,
+.sucesso {
+    text-align: center;
+}
+
+.erro {
+    color: #b00020;
+}
+
+.sucesso {
+    color: #175c25;
+}
+
+.alternativa {
+    margin: 1.25rem 0 0;
+    text-align: center;
+}
+
+.alternativa a {
+    color: var(--accentColor);
+    font-weight: 700;
 }

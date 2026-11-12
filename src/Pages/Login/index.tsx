@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fazerLogin } from "../../services/authService";
 import styles from "./Login.module.css";
 
@@ -67,13 +67,13 @@ export const Login = () => {
               name="password"
               type="password"
               autoComplete="current-password"
-              minLength={8}
+              minLength={6}
               required
             />
           </div>
 
           {erro && (
-            <p role="alert" style={{ color: "red" }}>
+            <p className={styles.erro} role="alert">
               {erro}
             </p>
           )}
@@ -86,6 +86,10 @@ export const Login = () => {
             {carregando ? "Entrando..." : "Entrar"}
           </button>
         </form>
+
+        <p className={styles.alternativa}>
+          Ainda não tem uma conta? <Link to="/register">Cadastre-se</Link>
+        </p>
       </main>
     </div>
   );

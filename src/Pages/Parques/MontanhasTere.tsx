@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { buscarTrilhas } from "../../services/trilhasService";
 
 import styles from "./Parques.module.css";
-import montanhasTere from "../../assets/montanhastere.jpg";
 import trilhaPedraAlpina from "../../assets/trilhaPedraAlpina.jpeg";
 import trilhaJacu from "../../assets/trilhaJacu.jpeg";
 import trilhaTangara from "../../assets/trilhaTangara.jpeg";
+import { Footer } from "../../Componentss/Footer";
 
 type Trilha = {
   id: string;
@@ -70,7 +70,6 @@ export const MontanhasTere = () => {
         <div
           id={styles.imgTopo}
           data-content="Parque Natural Municipal Montanhas de Teresópolis"
-          style={{ backgroundImage: `url(${montanhasTere})` }}
         ></div>
 
         <section>
@@ -157,7 +156,7 @@ export const MontanhasTere = () => {
           </div>
         </section>
 
-        <section>
+        <section className={`${styles.trilhas} ${styles.caixa}`}>
           <div className={styles.sobre}>
             <h2>Outras trilhas do parque</h2>
           </div>
@@ -275,6 +274,7 @@ export const MontanhasTere = () => {
           </div>
         </section>
       </main>
+      <Footer Info="☎ : (21) 2043-3626&ensp; | &#9993; parquemontanhas@teresopolis.rj.gov.br"/>
     </>
   );
 };

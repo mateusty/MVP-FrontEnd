@@ -21,3 +21,14 @@ export function fazerLogin(
     "Erro ao realizar login."
   );
 }
+
+export function fazerCadastro(
+  nome: string,
+  email: string,
+  password: string
+): Promise<void> {
+  return executarRequisicao(
+    http.post<void>("/auth/register", { nome, email, password }),
+    "Erro ao realizar cadastro."
+  );
+}
