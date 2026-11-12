@@ -6,7 +6,7 @@
     padding: 1em;
 }
 
-footer {
+.footer {
     background-color: var(--accentColor);
     color: var(--textColor);
 }

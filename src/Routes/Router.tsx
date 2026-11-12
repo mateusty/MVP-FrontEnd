@@ -5,6 +5,7 @@ import { TresPicos } from "../Pages/Parques/TresPicos";
 import { MontanhasTere } from "../Pages/Parques/MontanhasTere";
 import { Layout } from "../Componentss/Layout";
 import { Login } from "../Pages/Login";
+import { Register } from "../Pages/Login/Register";
 import { Eventos } from "../Pages/Eventos";
 import { AdminTrilhas } from "../Pages/Admin/AdminTrilhas";
 import { AdminEventos } from "../Pages/Admin/AdminEventos";
@@ -68,6 +69,8 @@ export const Router = () => {
         />
 
         <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/admin/trilhas"

@@ -1,18 +1,15 @@
-
 import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { fazerLogin } from "../../services/Api";
+import { Link, useNavigate } from "react-router-dom";
+import { fazerLogin } from "../../services/authService";
 import styles from "./Login.module.css";
 
 export const Login = () => {
-
   const navigate = useNavigate();
 
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-
     event.preventDefault();
 
     setErro("");
@@ -24,30 +21,21 @@ export const Login = () => {
     const password = String(formulario.get("password"));
 
     try {
-
       const dados = await fazerLogin(email, password);
 
-      // Armazena os dados da sessão
       sessionStorage.setItem("token", dados.token);
+      sessionStorage.setItem("usuario", JSON.stringify(dados.usuario));
+      
+      // Guarda o role para desbloquear as permissões de gestão
+      sessionStorage.setItem("userRole", dados.usuario.role);
 
-      sessionStorage.setItem(
-        "usuario",
-        JSON.stringify(dados.usuario)
-      );
-
-      console.log("Login realizado:", dados.usuario);
-
-      // Redireciona para a página inicial
       navigate("/");
-
     } catch (erro) {
-
       if (erro instanceof Error) {
         setErro(erro.message);
       } else {
         setErro("Erro ao realizar login.");
       }
-
     } finally {
       setCarregando(false);
     }
@@ -56,11 +44,9 @@ export const Login = () => {
   return (
     <div className={styles.body}>
       <main className={styles.main}>
-
         <h1>Entrar</h1>
 
         <form onSubmit={handleSubmit}>
-
           <div className={styles.input}>
             <label htmlFor="email">E-mail</label>
 
@@ -81,13 +67,13 @@ export const Login = () => {
               name="password"
               type="password"
               autoComplete="current-password"
-              minLength={8}
+              minLength={6}
               required
             />
           </div>
 
           {erro && (
-            <p role="alert" style={{ color: "red" }}>
+            <p className={styles.erro} role="alert">
               {erro}
             </p>
           )}
@@ -99,8 +85,11 @@ export const Login = () => {
           >
             {carregando ? "Entrando..." : "Entrar"}
           </button>
-
         </form>
+
+        <p className={styles.alternativa}>
+          Ainda não tem uma conta? <Link to="/register">Cadastre-se</Link>
+        </p>
       </main>
     </div>
   );

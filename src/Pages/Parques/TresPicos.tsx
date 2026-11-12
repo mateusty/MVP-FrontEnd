@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { buscarTrilhas } from "../../services/Api";
+import { buscarTrilhas } from "../../services/trilhasService";
 
 import styles from "./Parques.module.css";
 import tresPicosBanner from "../../assets/trespicos.jpg";
@@ -10,6 +10,7 @@ import doisBicos from "../../assets/dois_bicos.jpg";
 import brancaDeNeve from "../../assets/branca de neve.jpg";
 import torresDeBonsucesso from "../../assets/bonsucesso_torres1-MM-1024x683.jpg";
 import dedoDeDeus from "../../assets/dedo-de-deus.jpg";
+import { Footer } from "../../Componentss/Footer";
 
 type Trilha = {
   id: string;
@@ -366,6 +367,7 @@ export const TresPicos = () => {
         </div>
 
       </main>
+      <Footer Info="☎ : (21)2649-6847&ensp; | &#9993; parquetrespicos@teresopolis.rj.gov.br"/>
     </>
   );
 };

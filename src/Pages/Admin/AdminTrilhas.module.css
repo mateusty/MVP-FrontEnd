@@ -3,7 +3,8 @@
   max-width: 1100px;
   margin: 40px auto;
   padding: 30px 24px;
-  color: #24352a;
+  color: var(--accentColor);
+  background-color: var(--corFundo);
 }
 
 .cabecalho {
@@ -12,17 +13,17 @@
 
 .cabecalho h1 {
   font-size: 32px;
-  color: #285c3b;
+  color: var(--accentColor);
   margin-bottom: 8px;
 }
 
 .cabecalho p {
-  color: #66766c;
+  color: var(--accentColor);
   font-size: 15px;
 }
 
 .cardFormulario {
-  background: #ffffff;
+  background: var(--corFundo2);
   padding: 30px;
   border-radius: 14px;
   border: 1px solid #e1e9e3;
@@ -31,7 +32,7 @@
 }
 
 .cardFormulario h2 {
-  color: #285c3b;
+  color: var(--accentColor);
   font-size: 23px;
   margin-bottom: 25px;
 }
@@ -57,8 +58,8 @@
   padding: 12px;
   border: 1px solid #cbd8ce;
   border-radius: 8px;
-  background: #ffffff;
-  color: #24352a;
+  background: var(--corFundo2);
+  color: var(--accentColor);
   font: inherit;
   font-weight: 400;
   box-sizing: border-box;
@@ -72,7 +73,7 @@
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
-  outline: 2px solid #75af84;
+  outline: 2px solid var(--accentHoverColor);
   outline-offset: 1px;
 }
 
@@ -88,8 +89,8 @@
 }
 
 .botaoPrincipal {
-  background: #286c42;
-  color: white;
+  background: var(--accentColor);
+  color: var(--textColor);
   border: none;
   padding: 13px 24px;
   border-radius: 8px;
@@ -99,7 +100,7 @@
 }
 
 .botaoPrincipal:hover {
-  background: #1d5231;
+  background: var(--accentHoverColor);
 }
 
 .botaoPrincipal:disabled {
@@ -108,8 +109,8 @@
 }
 
 .botaoSecundario {
-  background: #edf2ee;
-  color: #285c3b;
+  background: var(--corFundo2);
+  color: var(--accentColor);
   border: 1px solid #cbd8ce;
   padding: 12px 20px;
   border-radius: 8px;
@@ -118,14 +119,14 @@
 }
 
 .botaoSecundario:hover {
-  background: #dce8df;
+  background: var(--corFundo);
 }
 
 .mensagem {
   margin-top: 18px;
   padding: 12px;
-  background: #e5f4e9;
-  color: #226238;
+  background: var(--corFundo2);
+  color: var(--accentColor);
   border-radius: 8px;
 }
 
@@ -139,7 +140,7 @@
 
 .tituloLista {
   font-size: 25px;
-  color: #285c3b;
+  color: var(--accentColor);
   margin-bottom: 22px;
 }
 
@@ -150,7 +151,7 @@
 }
 
 .cardTrilha {
-  background: white;
+  background: var(--corFundo2);
   border: 1px solid #e1e9e3;
   border-radius: 12px;
   overflow: hidden;
@@ -166,11 +167,11 @@
 
 .semImagem {
   height: 210px;
-  background: #eaf0eb;
+  background: var(--corFundo2);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #718578;
+  color: var(--accentColor);
 }
 
 .conteudoTrilha {
@@ -179,7 +180,7 @@
 
 .conteudoTrilha h3 {
   font-size: 20px;
-  color: #285c3b;
+  color: var(--accentColor);
   margin: 0 0 12px;
 }
 
@@ -198,8 +199,8 @@
 
 .botaoEditar {
   flex: 1;
-  background: #e5f1e8;
-  color: #24613a;
+  background: var(--corFundo2);
+  color: var(--accentColor);
   border: none;
   padding: 11px;
   border-radius: 7px;
@@ -208,7 +209,7 @@
 }
 
 .botaoEditar:hover {
-  background: #cfe4d4;
+  background: var(--corFundo);
 }
 
 .botaoExcluir {

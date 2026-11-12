@@ -40,28 +40,28 @@ export const Header = () => {
         onClick={() => navigate("/")}
       />
 
-      <nav>
-        <ul>
+      <nav className={styles.navegacao}>
+        <ul className={styles.listaNavegacao}>
           <li>
-            <button onClick={() => navigate("/eventos")}>
+            <button className={styles.botaoNavegacao} onClick={() => navigate("/eventos")}>
               Eventos
             </button>
           </li>
 
           <li>
-            <button onClick={() => navigate("/parnaso")}>
+            <button className={styles.botaoNavegacao} onClick={() => navigate("/parnaso")}>
               Serra dos Órgãos
             </button>
           </li>
 
           <li>
-            <button onClick={() => navigate("/tres-picos")}>
+            <button className={styles.botaoNavegacao} onClick={() => navigate("/tres-picos")}>
               Três Picos
             </button>
           </li>
 
           <li>
-            <button onClick={() => navigate("/montanhas-tere")}>
+            <button className={styles.botaoNavegacao} onClick={() => navigate("/montanhas-tere")}>
               Montanhas de Teresópolis
             </button>
           </li>
@@ -70,6 +70,7 @@ export const Header = () => {
             <>
               <li>
                 <button
+                  className={styles.botaoNavegacao}
                   onClick={() => navigate("/admin/trilhas")}
                   aria-current={
                     rotaAtual === "/admin/trilhas"
@@ -84,6 +85,7 @@ export const Header = () => {
               {/* Novo botão integrado para criar eventos */}
               <li>
                 <button
+                  className={styles.botaoNavegacao}
                   onClick={() => navigate("/admin/criar-evento")}
                   aria-current={
                     rotaAtual === "/admin/criar-evento"
@@ -99,7 +101,7 @@ export const Header = () => {
 
           {token ? (
             <li>
-              <button onClick={sair}>
+              <button className={styles.botaoNavegacao} onClick={sair}>
                 Sair
               </button>
             </li>

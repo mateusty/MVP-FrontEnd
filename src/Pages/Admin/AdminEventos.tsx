@@ -1,156 +1,286 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./AdminTrilhas.module.css"; 
+import { useEffect, useState } from "react";
+import {
+  atualizarEvento,
+  buscarEventos,
+  criarEvento,
+  excluirEvento
+} from "../../services/eventosService";
+import { removerPresenca } from "../../services/presencasService";
+import styles from "./AdminEventos.module.css";
 
-export function AdminEventos() { // <-- Alterado para export function AdminEventos
-  const navigate = useNavigate();
+type Participante = {
+  id: string;
+  nome: string;
+  email: string;
+};
 
-  const [formData, setFormData] = useState({
-    titulo: "",
-    descricao: "",
-    local: "",
-    tema: "",
-    data_horario: "",
-    limite_pessoas: "",
-    google_maps_url: "" // Opcional para o Google Maps
-  });
+type Evento = {
+  id: string;
+  atividade: string;
+  descricao: string | null;
+  localizacao: string;
+  parque: string;
+  capacidade_maxima: number;
+  data_evento: string;
+  google_maps_url: string | null;
+  participantes?: Participante[];
+};
 
+export function AdminEventos() {
+  const [eventos, setEventos] = useState<Evento[]>([]);
+  const [eventoEmEdicaoId, setEventoEmEdicaoId] = useState<string | null>(null);
+
+  const [titulo, setTitulo] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [local, setLocal] = useState("");
+  const [dataHorario, setDataHorario] = useState("");
+  const [limitePessoas, setLimitePessoas] = useState<number | "">("");
+  const [googleMapsUrl, setGoogleMapsUrl] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const carregarEventos = async () => {
+    try {
+      const data = await buscarEventos();
+      setEventos(data);
+    } catch (error) {
+      console.error("Erro ao carregar eventos:", error);
+    }
+  };
+
+  useEffect(() => {
+    carregarEventos();
+  }, []);
+
+  const iniciarEdicao = (evento: Evento) => {
+    setEventoEmEdicaoId(evento.id);
+    setTitulo(evento.atividade);
+    setDescricao(evento.descricao || "");
+    setLocal(evento.localizacao);
+    if (evento.data_evento) {
+      setDataHorario(evento.data_evento.slice(0, 16).replace(" ", "T"));
+    }
+    setLimitePessoas(evento.capacidade_maxima);
+    setGoogleMapsUrl(evento.google_maps_url || "");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const cancelarEdicao = () => {
+    setEventoEmEdicaoId(null);
+    setTitulo("");
+    setDescricao("");
+    setLocal("");
+    setDataHorario("");
+    setLimitePessoas("");
+    setGoogleMapsUrl("");
+    setMensagem("");
+  };
+
+  const handleExcluir = async (id: string) => {
+    if (!window.confirm("Tem certeza que deseja excluir este evento?")) return;
+
+    try {
+      await excluirEvento(id);
+      alert("Evento excluído com sucesso!");
+      carregarEventos();
+    } catch (error) {
+      console.error("Erro na exclusão:", error);
+      alert(error instanceof Error ? error.message : "Erro ao excluir o evento.");
+    }
+  };
+
+  const handleRemoverPresenca = async (presencaId: string) => {
+    if (!window.confirm("Deseja realmente remover a presença deste participante?")) return;
+
+    try {
+      await removerPresenca(presencaId);
+      alert("Presença removida com sucesso!");
+      carregarEventos();
+    } catch (error) {
+      console.error("Erro ao remover presença:", error);
+      alert(error instanceof Error ? error.message : "Erro ao remover a presença.");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setMensagem("");
 
-    const token = sessionStorage.getItem("token");
+    const payload = {
+      atividade: titulo,
+      descricao,
+      localizacao: local,
+      parque: local,
+      capacidade_maxima: Number(limitePessoas),
+      data_evento: dataHorario,
+      google_maps_url: googleMapsUrl || ""
+    };
 
     try {
-      const response = await fetch("http://localhost:3000/api/eventos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}` 
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Evento criado com sucesso!");
-        navigate("/eventos");
+      if (eventoEmEdicaoId) {
+        await atualizarEvento(eventoEmEdicaoId, payload);
       } else {
-        setMensagem(data.mensagem || "Erro ao criar evento.");
+        await criarEvento(payload);
       }
+
+      alert(eventoEmEdicaoId ? "Evento atualizado com sucesso!" : "Evento criado com sucesso!");
+      cancelarEdicao();
+      carregarEventos();
     } catch (error) {
       console.error("Erro na requisição:", error);
-      setMensagem("Erro de conexão com o servidor.");
+      setMensagem(error instanceof Error ? error.message : "Erro de conexão com o servidor.");
     }
   };
 
   return (
-    <div className={styles.container || "p-6 max-w-xl mx-auto"}>
-      <h2 className="text-2xl font-bold mb-4 text-green-900">Cadastrar Novo Evento</h2>
-      
-      {mensagem && <div className="bg-red-100 text-red-700 p-2 mb-4 rounded">{mensagem}</div>}
+    <main className={styles.principal}>
+      <div className={styles.banner}>
+        <div className={styles.sobre}>
+          <h2>Painel Administrativo - Gerenciar Eventos</h2>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block font-medium">Título</label>
-          <input 
-            type="text" 
-            name="titulo" 
-            required 
-            value={formData.titulo} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
+      <div className={styles.caixa}>
+        <form className={styles.formulario} onSubmit={handleSubmit}>
+          <h3>{eventoEmEdicaoId ? "Editar Evento" : "Novo Evento nos Parques"}</h3>
+
+          {mensagem && <p style={{ color: "red", textAlign: "center" }}>{mensagem}</p>}
+
+          <input
+            type="text"
+            placeholder="Título do Evento (Atividade)"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+            required
           />
+
+          <textarea
+            placeholder="Descrição"
+            rows={4}
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Local / Parque (ex: Parnaso)"
+            value={local}
+            onChange={(e) => setLocal(e.target.value)}
+            required
+          />
+
+          <input
+            type="datetime-local"
+            value={dataHorario}
+            onChange={(e) => setDataHorario(e.target.value)}
+            required
+          />
+
+          <input
+            type="number"
+            placeholder="Limite de Pessoas"
+            value={limitePessoas}
+            onChange={(e) => setLimitePessoas(e.target.value ? Number(e.target.value) : "")}
+            required
+          />
+
+          <input
+            type="url"
+            placeholder="Link do Google Maps (Opcional)"
+            value={googleMapsUrl}
+            onChange={(e) => setGoogleMapsUrl(e.target.value)}
+          />
+
+          <button type="submit" className={styles.btnSubmit}>
+            {eventoEmEdicaoId ? "Salvar Alterações" : "Cadastrar Evento"}
+          </button>
+
+          {eventoEmEdicaoId && (
+            <button type="button" onClick={cancelarEdicao} className={styles.btnCancelar}>
+              Cancelar
+            </button>
+          )}
+        </form>
+      </div>
+
+      <div className={styles.caixa}>
+        <div className={styles.headerSecao}>
+          <div className={styles.tituloGroup}>
+            <h2>Eventos Cadastrados ({eventos.length})</h2>
+          </div>
         </div>
 
-        <div>
-          <label className="block font-medium">Descrição</label>
-          <textarea 
-            name="descricao" 
-            value={formData.descricao} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
+        {eventos.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#666" }}>Nenhum evento cadastrado.</p>
+        ) : (
+          <div className={styles.menu_trilhas}>
+            {eventos.map((evento) => {
+              const totalInscritos = evento.participantes?.length || 0;
+              return (
+                <div key={evento.id} className={styles.menu_cards}>
+                  <div className={styles.texto_trilhas}>
+                    <div className={styles.cardHeaderTop}>
+                      <h3>{evento.atividade}</h3>
+                      <div className={styles.cardAcoesGestor}>
+                        <button 
+                          className={styles.btnEditar} 
+                          onClick={() => iniciarEdicao(evento)}
+                          title="Editar Evento"
+                        >
+                          ✎
+                        </button>
+                        <button 
+                          className={styles.btnExcluir} 
+                          onClick={() => handleExcluir(evento.id)}
+                          title="Excluir Evento"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    </div>
 
-        <div>
-          <label className="block font-medium">Local</label>
-          <input 
-            type="text" 
-            name="local" 
-            required 
-            value={formData.local} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
+                    <div className={styles.cardDescricaoContainer}>
+                      <p className={styles.cardDescricaoTexto}>{evento.descricao}</p>
+                    </div>
 
-        <div>
-          <label className="block font-medium">Tema</label>
-          <input 
-            type="text" 
-            name="tema" 
-            required 
-            value={formData.tema} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
+                    <p className={styles.cardInfoItem}><strong>Local:</strong> {evento.localizacao}</p>
+                    <p className={styles.cardInfoItem}><strong>Data/Horário:</strong> {new Date(evento.data_evento).toLocaleString("pt-BR")}</p>
+                    <p className={styles.cardInfoItem}><strong>Vagas Preenchidas:</strong> {totalInscritos} / {evento.capacidade_maxima}</p>
 
-        <div>
-          <label className="block font-medium">Data e Horário</label>
-          <input 
-            type="datetime-local" 
-            name="data_horario" 
-            required 
-            value={formData.data_horario} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
+                    {evento.google_maps_url && (
+                      <a href={evento.google_maps_url} target="_blank" rel="noreferrer" className={styles.linkMapa}>
+                        Ver no Google Maps
+                      </a>
+                    )}
 
-        <div>
-          <label className="block font-medium">Limite de Pessoas</label>
-          <input 
-            type="number" 
-            name="limite_pessoas" 
-            required 
-            min="1"
-            value={formData.limite_pessoas} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-
-        <div>
-          <label className="block font-medium">Link do Google Maps (Opcional)</label>
-          <input 
-            type="url" 
-            name="google_maps_url" 
-            placeholder="https://maps.app.goo.gl/..."
-            value={formData.google_maps_url} 
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-
-        <button 
-          type="submit" 
-          className="w-full bg-green-700 text-white p-2 rounded hover:bg-green-800 transition"
-        >
-          Salvar Evento
-        </button>
-      </form>
-    </div>
+                    <div className={styles.containerParticipantes}>
+                      <span className={styles.tituloParticipantes}>Participantes Inscritos:</span>
+                      {(!evento.participantes || evento.participantes.length === 0) ? (
+                        <p className={styles.semParticipantes}>Nenhum participante inscrito ainda.</p>
+                      ) : (
+                        <ul className={styles.listaParticipantes}>
+                          {evento.participantes.map((p) => (
+                            <li key={p.id} className={styles.itemParticipante}>
+                              <span>{p.nome} ({p.email})</span>
+                              <button 
+                                type="button"
+                                onClick={() => handleRemoverPresenca(p.id)}
+                                className={styles.btnRemoverPresenca}
+                              >
+                                Remover
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </main>
   );
 }
